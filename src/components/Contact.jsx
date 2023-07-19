@@ -340,5 +340,5 @@ function Contact({ signOut }) {
   );
 }
 
-export default withAuthenticator(Contact);
-//export default Contact;
+//export default withAuthenticator(Contact);
+export default Contact;
