@@ -9,6 +9,7 @@ import {
 	useTheme,
 	TextField,
 	TextAreaField,
+  withAuthenticator,
 	FieldGroupIcon,
 	Icon,
 	Link,
@@ -18,6 +19,7 @@ import { API } from 'aws-amplify'
 import { createCandidate } from '../graphql/mutations'
 //import { InstagramEmbed } from 'react-social-media-embed';
 
+
 const IconEmail = () => {
   return (
     <Icon
@@ -26,7 +28,7 @@ const IconEmail = () => {
     />
   );
 };
-function Contact() {
+function Contact({ signOut }) {
   const { tokens } = useTheme()
 
 	const handleFormSubmit = async (e) => {
@@ -333,8 +335,10 @@ function Contact() {
         </div>
        </div>
       </div> */}
+      <Button onClick={signOut}>Sign Out</Button>
 		</Flex>
   );
 }
 
-export default Contact;
+export default withAuthenticator(Contact);
+//export default Contact;

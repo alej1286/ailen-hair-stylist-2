@@ -34,9 +34,10 @@ function App({ signOut }) {
       </Routes>
       <Footer/>
     </Router>
-    <Button onClick={signOut}>Sign Out</Button>
+    {/* <Button onClick={signOut}>Sign Out</Button> */}
     </View>
   );
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
+export default App;
