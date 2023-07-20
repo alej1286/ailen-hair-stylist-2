@@ -9,7 +9,6 @@ import {
 	useTheme,
 	TextField,
 	TextAreaField,
-  withAuthenticator,
 	FieldGroupIcon,
 	Icon,
 	Link,
@@ -66,6 +65,11 @@ function Contact({ signOut }) {
 					justifyContent={{ large: 'center' }}
 					gap={tokens.space.xl}
 				>
+          <Flex direction={'column'} justifyContent="space-between">
+						
+            {/* <InstagramEmbed url='https://www.instagram.com/p/Ct-HZtfsIwc/'/> */}
+            
+          </Flex>
 					<Flex direction={'column'} justifyContent="space-between">
 						<View style={{ marginBottom: tokens.space.small }}>
 							<Heading color={tokens.colors.white} level={3}>

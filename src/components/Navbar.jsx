@@ -19,7 +19,12 @@ function Navbar() {
           <Link to="/about" className="mx-2">
             About
           </Link>
-
+          <Link to="/instagram" className="mx-2">
+            Instagram
+          </Link>
+          <Link to="/privacypolicy" className="mx-2">
+            Privacy Policy
+          </Link>
           <Link to="/contact" className="mx-2">
             Contact
           </Link>

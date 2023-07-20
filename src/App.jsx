@@ -19,6 +19,8 @@ import {
   View,
   Card,
 } from "@aws-amplify/ui-react";
+import Instagram from './components/Instagram';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 function App({ signOut }) {
   return (
@@ -30,6 +32,8 @@ function App({ signOut }) {
         <Route path="/about" element={<About/>} />
         <Route path="/services" element={<Services/>} />
         <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/instagram" element={<Instagram/>} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         <Route path="/contact" element={<Contact/>} />
       </Routes>
       <Footer/>
