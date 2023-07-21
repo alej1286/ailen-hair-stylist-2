@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "userid",
+      "environmentVariableName": "userid"
+    },
+    {
+      "cloudFormationParameterName": "token",
+      "environmentVariableName": "token"
+    }
+  ]
+}

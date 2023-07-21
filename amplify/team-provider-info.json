@@ -20,10 +20,17 @@
           "sesEmail": "ailenmejiastravieso@gmail.com",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
           "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-5875663579664b385274-build.zip"
+        },
+        "instagramfunction": {
+          "userid": "9820457404693608",
+          "token": "IGQVJYenFrSzhBYTFmX0JyNUlETjg2R2NIanlHUmV3TUYwemxqaDRZARl9zc09vYkJ0ZA3l1eFF4M0JWdGZA6MmhvRjMxa3h1dmlKTEhNOFNYaUw3R1d6ZA1BBU015RDlWMTRvcHlRblZAublJ1ZAkdGdzV5cgZDZD",
+          "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+          "s3Key": "amplify-builds/instagramfunction-5a6d5371683336684a4c-build.zip"
         }
       },
       "api": {
-        "ailenhairstylist2": {}
+        "ailenhairstylist2": {},
+        "instagramapi": {}
       }
     }
   }

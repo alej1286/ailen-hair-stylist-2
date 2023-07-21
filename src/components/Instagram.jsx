@@ -1,6 +1,14 @@
-import InstaFeeds from './InstaFeed/InstaFeeds'
+import { Component } from 'react';
+import { API } from "aws-amplify";
 
-const Instagram = () => {
+class Instagram extends Component{
+  state = {items:[]}
+  async componentDidMount(){
+    const data = await API.get('instagramapi','/items')
+    this.setState({items:data.items})
+    console.log(data);
+  }
+  render(){
   return(
 <div className='mt-24 '>
 {/* 
@@ -8,6 +16,7 @@ const Instagram = () => {
 </div>
 
   ) 
+}
 }
 
 export default Instagram

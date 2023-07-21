@@ -27,7 +27,14 @@ const awsmobile = {
     "aws_appsync_graphqlEndpoint": "https://qlvwows7obep7ajsf7vukhszxm.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-nush2vewq5dnbcr56xsnz7qzta"
+    "aws_appsync_apiKey": "da2-nush2vewq5dnbcr56xsnz7qzta",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "instagramapi",
+            "endpoint": "https://a6qnt91ii3.execute-api.us-east-1.amazonaws.com/staging",
+            "region": "us-east-1"
+        }
+    ]
 };
 
 

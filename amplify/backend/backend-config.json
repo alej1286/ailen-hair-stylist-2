@@ -19,6 +19,20 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    },
+    "instagramapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "auth": {
@@ -62,6 +76,12 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "instagramfunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -86,6 +106,38 @@
         {
           "category": "function",
           "resourceName": "ailenhairstylist22b6ec82d"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_token": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_userid": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
         }
       ]
     }
