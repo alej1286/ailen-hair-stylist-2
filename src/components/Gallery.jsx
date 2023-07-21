@@ -49,9 +49,9 @@ function Gallery() {
   "https://ailenhairstylistweb.s3.amazonaws.com/young-girl-510441_1280.jpg",
   "https://ailenhairstylistweb.s3.amazonaws.com/young-man-1281282_1280.jpg"];
     return (
-      <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
-        <div className="text-xl mb-5 font-semibold">Ailen Gallery </div>
+      <div className="container mt-24 mx-auto px-5 py-2 lg:px-32 lg:pt-24">
         <div className="-m-1 flex flex-wrap md:-m-2">
+        <div className="text-xl mb-5 font-semibold">Ailen Gallery </div>
           {images.map((image, index) => (
             <div key={index} className="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-1 md:p-2">
               <img className="block mx-auto h-full object-cover object-center rounded-lg shadow-md" src={image} 

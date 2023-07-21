@@ -53,7 +53,7 @@ function Contact({ signOut }) {
 
 	}
   return (
-    <Flex justifyContent="center" alignItems="center" height="100vh">
+    <Flex justifyContent="center" alignItems="center" height="100vh" className='mt-24'>
 			<Card
 				padding={{ large: tokens.space.xxxl }}
 				variation="elevated"

@@ -1,6 +1,6 @@
 function Services() {
   return (
-    <div>
+    <div className="mt-24">
       <h1 className="text-4xl font-bold mb-4">Our Services</h1>
       <ul className="list-disc list-inside">
         <li className="mb-2">Haircuts and Styling</li>
