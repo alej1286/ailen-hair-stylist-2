@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-amplifyc6f487cfd3d84-staging-120828-unauthRole",
       "StackName": "amplify-amplifyc6f487cfd3d84-staging-120828",
       "StackId": "arn:aws:cloudformation:us-east-1:132478238461:stack/amplify-amplifyc6f487cfd3d84-staging-120828/f8dc7cc0-262c-11ee-8069-0a45a0cab5db",
-      "AmplifyAppId": "daondcek2caec"
+      "AmplifyAppId": "daondcek2caec",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -19,13 +20,13 @@
         "ailenhairstylist22b6ec82d": {
           "sesEmail": "ailenmejiastravieso@gmail.com",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-5875663579664b385274-build.zip"
+          "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-387148514d78682f4164-build.zip"
         },
         "instagramfunction": {
-          "userid": "9820457404693608",
-          "token": "IGQVJYenFrSzhBYTFmX0JyNUlETjg2R2NIanlHUmV3TUYwemxqaDRZARl9zc09vYkJ0ZA3l1eFF4M0JWdGZA6MmhvRjMxa3h1dmlKTEhNOFNYaUw3R1d6ZA1BBU015RDlWMTRvcHlRblZAublJ1ZAkdGdzV5cgZDZD",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/instagramfunction-5a6d5371683336684a4c-build.zip"
+          "s3Key": "amplify-builds/instagramfunction-683770344c787a6c6241-build.zip",
+          "userid": "9820457404693608",
+          "token": "IGQVJXbVNnQUI0b2p5YmJlM2VyT3plcHRNQWZAnekktYmJiOHpOUDZAEa09FVVBoTTFkSFZAsWFZAxc3lQWWg5NzRHS054U3BNRkpaSndXSC1EMXFRYmhhTHE5WnJyUnJrd1VVcW9acy1tTlBYZA1lscjA2RwZDZD"
         }
       },
       "api": {

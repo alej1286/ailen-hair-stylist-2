@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import { API } from "aws-amplify";
+import {
+  withAuthenticator
+} from "@aws-amplify/ui-react";
 
 class Instagram extends Component{
   state = {items:[]}
@@ -18,5 +21,5 @@ class Instagram extends Component{
   ) 
 }
 }
-
-export default Instagram
+export default withAuthenticator(Instagram);
+//export default Instagram

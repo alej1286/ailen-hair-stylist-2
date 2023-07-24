@@ -1,6 +1,7 @@
 import React from 'react';
 import { Disclosure } from '@headlessui/react';
-import { ChevronUpIcon } from '@heroicons/react/solid';
+//import { ChevronUpIcon } from '@heroicons/react/solid';
+import { Bars3Icon } from '@heroicons/react/24/outline'
 
 function PrivacyPolicy() {
   return (
@@ -16,7 +17,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Introduction</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -36,7 +37,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Information We Collect</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -66,7 +67,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Use of Information</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -90,7 +91,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Disclosure of Information</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -119,7 +120,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Security</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -139,7 +140,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Your Choices</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -158,7 +159,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Children's Privacy</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>
@@ -180,7 +181,7 @@ function PrivacyPolicy() {
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
                   <span>Contact Us</span>
-                  <ChevronUpIcon
+                  <Bars3Icon
                     className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-gray-500`}
                   />
                 </Disclosure.Button>

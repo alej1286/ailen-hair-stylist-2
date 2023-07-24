@@ -7,7 +7,7 @@ const ses = new aws.SES();
 exports.handler = async (event) => {
   for (const streamedItem of event.Records) {
     if (streamedItem.eventName === "INSERT") {
-      //pull off items from stream
+      //pull off items from stream *
       const candidateName = streamedItem.dynamodb.NewImage.name.S;
       const candidateEmail = streamedItem.dynamodb.NewImage.email.S;
       const candidateMessage = streamedItem.dynamodb.NewImage.message.S;
@@ -19,12 +19,12 @@ exports.handler = async (event) => {
           },
           Source: process.env.SES_EMAIL,
           Message: {
-            Subject: { Data: "Candidate Submission" },
+            Subject: { Data: "ailenhairstylist.com Contact Form Submission" },
             Body: {
               Text: {
-                Data: `My name is ${candidateName}. You can reach me at ${candidateEmail}. 
-                
-                ${candidateMessage}
+                Data: `Name: ${candidateName}. 
+                email: ${candidateEmail}. 
+                message: ${candidateMessage}
                 `,
               },
             },

@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 });
 
 /**********************
- * Example get method *
+ * Example get method* *
  **********************/
 let axios = require("axios");
 app.get("/items", function (req, res) {
@@ -40,8 +40,9 @@ app.get("/items", function (req, res) {
   //res.json({ success: "get call succeed!", url: req.url });
   axios
     .get(
-      `https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
+      //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
       //`https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
+      `https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
     )
     .then((response) => {
       const items = response.data.results;
