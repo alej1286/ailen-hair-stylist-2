@@ -23,6 +23,7 @@ import Instagram from './components/Instagram';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
 function App({ signOut }) {
+  
   return (
     <View className="App bg-gray-200 min-h-screen">
     <Router>
