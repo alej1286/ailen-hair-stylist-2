@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
+import Authe from './components/Authe';
 import { Auth } from 'aws-amplify';
 import Home from './components/Home';
 import About from './components/About';
@@ -38,6 +39,7 @@ function App({ signOut }) {
         <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/authe" element={<Authe />} />
       </Routes>
       <Footer/>
     </Router>
