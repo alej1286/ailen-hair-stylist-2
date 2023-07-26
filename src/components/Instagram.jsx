@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Component } from 'react';
 import { API } from "aws-amplify";
 import {
@@ -21,5 +22,5 @@ class Instagram extends Component{
   ) 
 }
 }
-export default withAuthenticator(Instagram);
-//export default Instagram
+//export default withAuthenticator(Instagram);
+export default Instagram
