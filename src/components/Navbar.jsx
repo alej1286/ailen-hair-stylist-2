@@ -1,8 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
+
+import Modal from "@cloudscape-design/components/modal";
+import TopNavigation from "@cloudscape-design/components/top-navigation";
+
+
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -23,7 +32,17 @@ const classNameFunc = ({ isActive }) => (isActive ? ' no-underline bg-gray-900 t
 const classNameFuncSmall = ({ isActive }) => (isActive ? 'no-underline bg-gray-900 text-white rounded-md px-5 py-1 text-sm font-medium' : 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium:bg-gray-700');
 
 
-export default function Navbar({ signOut }) {
+export default function Navbar(props) {
+  const { route, signOut } = useAuthenticator((context) => [
+    context.route,
+    context.signOut,
+  ]);
+  const navigate = useNavigate();
+
+  function logOut() {
+    signOut();
+    navigate('/login');
+  }
   
   return (
     <Disclosure as="nav" className="bg-gray-800/60 backdrop-blur-md shadow-md"
@@ -32,7 +51,7 @@ export default function Navbar({ signOut }) {
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between h-14">
+            <div className="relative flex items-center justify-between h-14">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -44,7 +63,7 @@ export default function Navbar({ signOut }) {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
                 <div className="flex flex-shrink-0 items-center">
                   {/* <img
                     className="h-8 w-auto"
@@ -67,8 +86,13 @@ export default function Navbar({ signOut }) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                 <button onClick={signOut}>Sign Out</button>
-
+              {route !== 'authenticated' ? (
+          <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => navigate('/login')}>Login</button>
+        ) : (
+          <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => logOut()}>Logout</button>
+        )}
+                
+               
                 {/* Profile dropdown */}
                {/*  <Menu as="div" className="relative ml-3">
                   <div>
@@ -139,6 +163,7 @@ export default function Navbar({ signOut }) {
                 {item.name}
               </NavLink>
               ))}
+              
             </div>
           </Disclosure.Panel>
         </>

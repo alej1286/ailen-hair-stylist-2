@@ -21,6 +21,7 @@ import {
 } from "@aws-amplify/ui-react";
 import Instagram from './components/Instagram';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import { Login } from './components/Login';
 
 function App({ signOut }) {
   
@@ -36,6 +37,7 @@ function App({ signOut }) {
         <Route path="/instagram" element={<Instagram/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
       <Footer/>
     </Router>

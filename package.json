@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^5.0.4",
+    "@cloudscape-design/components": "^3.0.342",
+    "@cloudscape-design/global-styles": "^1.0.12",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@testing-library/jest-dom": "^5.17.0",
