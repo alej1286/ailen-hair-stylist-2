@@ -3,6 +3,17 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
+    "aws_appsync_graphqlEndpoint": "https://qlvwows7obep7ajsf7vukhszxm.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-nush2vewq5dnbcr56xsnz7qzta",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "instagramapi",
+            "endpoint": "https://a6qnt91ii3.execute-api.us-east-1.amazonaws.com/staging",
+            "region": "us-east-1"
+        }
+    ],
     "aws_cognito_identity_pool_id": "us-east-1:d0faa3a6-a425-4887-99e9-e3b29b662a7e",
     "aws_cognito_region": "us-east-1",
     "aws_user_pools_id": "us-east-1_W9Pu8PucF",
@@ -23,17 +34,6 @@ const awsmobile = {
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
-    ],
-    "aws_appsync_graphqlEndpoint": "https://qlvwows7obep7ajsf7vukhszxm.appsync-api.us-east-1.amazonaws.com/graphql",
-    "aws_appsync_region": "us-east-1",
-    "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-nush2vewq5dnbcr56xsnz7qzta",
-    "aws_cloud_logic_custom": [
-        {
-            "name": "instagramapi",
-            "endpoint": "https://a6qnt91ii3.execute-api.us-east-1.amazonaws.com/staging",
-            "region": "us-east-1"
-        }
     ]
 };
 

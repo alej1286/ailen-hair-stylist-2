@@ -15,11 +15,12 @@ import TopNavigation from "@cloudscape-design/components/top-navigation";
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'gallery', href: '/gallery', current: false },
-  { name: 'about', href: '/about', current: false },
-  { name: 'instagram', href: '/instagram', current: false },
-  { name: 'privacypolicy', href: '/privacypolicy', current: false },
-  { name: 'contact', href: '/contact', current: false },
+  { name: 'Services', href: '/services', current: false },
+  { name: 'Gallery', href: '/gallery', current: false },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Instagram', href: '/instagram', current: false },
+  { name: 'Privacypolicy', href: '/privacypolicy', current: false },
+  { name: 'Contact', href: '/contact', current: false },
   
 ]
 

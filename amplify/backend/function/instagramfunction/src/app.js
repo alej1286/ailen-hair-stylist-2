@@ -42,7 +42,8 @@ app.get("/items", function (req, res) {
     .get(
       //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
       //`https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
-      `https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
+      //`https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
+      `https://v1.nocodeapi.com/alej1286/instagram/DjvHJlfbHHYkiLne`
     )
     .then((response) => {
       const items = response.data.results;
