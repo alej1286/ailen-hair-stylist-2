@@ -112,7 +112,15 @@ export default function PricesForm(props) {
       {...rest}
     >
       <TextField
-        label="Type"
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Type</span>
+            <span style={{ whiteSpace: "pre", fontStyle: "italic" }}>
+              {" "}
+              - optional
+            </span>
+          </span>
+        }
         isRequired={false}
         isReadOnly={false}
         value={type}
@@ -137,7 +145,15 @@ export default function PricesForm(props) {
         {...getOverrideProps(overrides, "type")}
       ></TextField>
       <TextField
-        label="Price"
+        label={
+          <span style={{ display: "inline-flex" }}>
+            <span>Price</span>
+            <span style={{ whiteSpace: "pre", fontStyle: "italic" }}>
+              {" "}
+              - optional
+            </span>
+          </span>
+        }
         isRequired={false}
         isReadOnly={false}
         value={price}
