@@ -24,14 +24,17 @@
         },
         "instagramfunction": {
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/instagramfunction-71464a7a78466e39594e-build.zip",
-          "userid": "9820457404693608",
-          "token": "IGQVJXbVNnQUI0b2p5YmJlM2VyT3plcHRNQWZAnekktYmJiOHpOUDZAEa09FVVBoTTFkSFZAsWFZAxc3lQWWg5NzRHS054U3BNRkpaSndXSC1EMXFRYmhhTHE5WnJyUnJrd1VVcW9acy1tTlBYZA1lscjA2RwZDZD"
+          "s3Key": "amplify-builds/instagramfunction-45783972725361573541-build.zip",
+          "userid": "6169887699787604",
+          "token": "IGQWRNLU50SjZAFNzNMMTEtQ0puMFlfTjNleUdoYTc1SEZAvZADh6Vk81UTlSaHZAjWDc1Q2dLVVFjVHc5bC02MEJoTWNFNWZADTTBGV0hFTzFibDJ1cjdCd2E4RENHeDdkRUszRDI3SS1LdkEzZAWJvUDBvMGRWd1gzTU0ZD"
         }
       },
       "api": {
         "ailenhairstylist2": {},
         "instagramapi": {}
+      },
+      "storage": {
+        "s3ailenhairstylist2storagedb7b9f38": {}
       }
     }
   }

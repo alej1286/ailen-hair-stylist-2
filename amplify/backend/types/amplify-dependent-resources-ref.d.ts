@@ -37,5 +37,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "s3ailenhairstylist2storagedb7b9f38": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }

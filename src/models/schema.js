@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Services": {
-            "name": "Services",
+        "Service": {
+            "name": "Service",
             "fields": {
                 "id": {
                     "name": "id",
@@ -19,6 +19,13 @@ export const schema = {
                 },
                 "price": {
                     "name": "price",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "imagePath": {
+                    "name": "imagePath",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -140,5 +147,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "ffc4667124f298d4935a37a896054b8d"
+    "version": "8f1c1a5b61aee12b6eddedb812952cc5"
 };

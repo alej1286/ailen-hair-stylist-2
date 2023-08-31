@@ -34,7 +34,9 @@ const awsmobile = {
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
-    ]
+    ],
+    "aws_user_files_s3_bucket": "ailen-hair-stylist-2-storage-db7b9f38120828-staging",
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 

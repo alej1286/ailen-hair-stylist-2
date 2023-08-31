@@ -6,34 +6,36 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerServices = {
+type EagerService = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Services, 'id'>;
+    identifier: ManagedIdentifier<Service, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly type?: string | null;
   readonly price?: string | null;
+  readonly imagePath?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyServices = {
+type LazyService = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Services, 'id'>;
+    identifier: ManagedIdentifier<Service, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
   readonly type?: string | null;
   readonly price?: string | null;
+  readonly imagePath?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type Services = LazyLoading extends LazyLoadingDisabled ? EagerServices : LazyServices
+export declare type Service = LazyLoading extends LazyLoadingDisabled ? EagerService : LazyService
 
-export declare const Services: (new (init: ModelInit<Services>) => Services) & {
-  copyOf(source: Services, mutator: (draft: MutableModel<Services>) => MutableModel<Services> | void): Services;
+export declare const Service: (new (init: ModelInit<Service>) => Service) & {
+  copyOf(source: Service, mutator: (draft: MutableModel<Service>) => MutableModel<Service> | void): Service;
 }
 
 type EagerCandidate = {

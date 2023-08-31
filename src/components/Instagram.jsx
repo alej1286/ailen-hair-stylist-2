@@ -8,15 +8,24 @@ import {
 class Instagram extends Component{
   state = {items:[]}
   async componentDidMount(){
-    const data = await API.get('instagramapi','/items')
-    this.setState({items:data.items})
-    console.log(data);
+
+    try {
+      //const data = await API.get('instagramapi','/items');
+      API.get('instagramapi','/items').then(response => {
+        console.log(response);
+      }).catch(error => console.log(error.response.data));
+      //this.setState({items:data.items});
+      //console.log("data:",data);  
+    } catch (error) {
+      console.log(error);
+    }
+    
   }
   render(){
   return(
 <div className='mt-24 '>
 {/* 
-  <InstaFeeds token="IGQVJYbEZAVM3dCOTRnOTBwcG5TU2JsNk1CMDVzRE5NN3ZAfSUNUQkFYbFBfY3plNXFXWERFRXBEX19sZAjNMUWVBUHRXQ3R4Q2g3TnRqdlNFb3ZAMbDF6d24zQk1faUVYeWtJcERLOVp5YzZAiZAk5JQU5abQZDZD" limit={12}/> */}
+  <InstaFeeds token="IGQWRNLU50SjZAFNzNMMTEtQ0puMFlfTjNleUdoYTc1SEZAvZADh6Vk81UTlSaHZAjWDc1Q2dLVVFjVHc5bC02MEJoTWNFNWZADTTBGV0hFTzFibDJ1cjdCd2E4RENHeDdkRUszRDI3SS1LdkEzZAWJvUDBvMGRWd1gzTU0ZD" limit={12}/> */}
 </div>
 
   ) 

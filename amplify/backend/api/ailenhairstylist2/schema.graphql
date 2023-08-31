@@ -1,7 +1,8 @@
-type Services @model @auth(rules: [{allow: public}]) {
+type Service @model @auth(rules: [{allow: public}]) {
   id: ID!
   type: String
   price: String
+  imagePath: String
 }
 
 type Candidate @model @auth(rules: [{allow: public, operations: [create]}]) {
@@ -9,4 +10,5 @@ type Candidate @model @auth(rules: [{allow: public, operations: [create]}]) {
   name: String!
   email: AWSEmail!
   message: String!
-} 
+}
+ 
