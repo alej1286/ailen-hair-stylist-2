@@ -61,31 +61,32 @@ app.use(function (req, res, next) {
  // console.log(r);
 }); */
 
-app.get("/items", function (req, res) {
-  const query = req.query;
-  //const r = await axios
-  axios
+app.get("/items", async function (req, res) {
+  const r = await axios
     .get(
-      `https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
       //`https://reqres.in/api/users`
+      //`https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
+      `https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
+      //`https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
+      //`https://v1.nocodeapi.com/alej1286/instagram/DjvHJlfbHHYkiLne`
+      /* ,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      } */
     )
     .then((response) => {
-      res.json({
-        url: req.url,
-        response,
-        event: req.apiGateway.event, // to view all event data
-        query: query,
-      });
-      console.log("response", response);
+      res.json(response.data);
+      console.log("response.data:", response.data);
     })
     .catch((err) => {
       res.json({
         err,
         url: req.url,
         event: req.apiGateway.event, // to view all event data
-        query: query,
       });
-      console.log("err", err);
+      console.log("err:", err);
     });
 
   // console.log(r);
