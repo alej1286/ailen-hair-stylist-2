@@ -1,4 +1,18 @@
 /*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["facebookToken"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
+/*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
 http://aws.amazon.com/apache2.0/
@@ -17,13 +31,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 const axios = require("axios").default;
+const aws = require("aws-sdk");
 
 // declare a new express app
 const app = express();
 app.use(bodyParser.json());
 app.use(awsServerlessExpressMiddleware.eventContext());
 const user_id = process.env.userid;
-const access_token = process.env.token;
+//const access_token = process.env.token;
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
@@ -32,53 +47,25 @@ app.use(function (req, res, next) {
   next();
 });
 
-/**********************
- * Example get method* *
- **********************/
-/* app.get("/items", async function (req, res) {
-  // Add your code here
-  //res.json({ success: "get call succeed!", url: req.url });
-  //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
-  //`https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
-  //`https://v1.nocodeapi.com/alej1286/instagram/DjvHJlfbHHYkiLne`
-  const r = await axios
-    .get(
-      `https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
-    )
-    .then((response) => {
-      res.json({
-        error: null,
-        response,
-      });
+const getFacebookToken = async () => {
+  const { Parameters } = await new aws.SSM()
+    .getParameters({
+      Names: ["facebookToken"].map((secretName) => process.env[secretName]),
+      WithDecryption: true,
     })
-    .catch((err) => {
-      res.json({
-        error: err,
-        response: null,
-      });
-    });
-
- // console.log(r);
-}); */
+    .promise();
+  return Parameters[0].Value;
+};
 
 app.get("/items", async function (req, res) {
+  const facebookToken = await getFacebookToken();
   const r = await axios
     .get(
-      //`https://reqres.in/api/users`
-      //`https://graph.instagram.com/${user_id}/media?access_token=${access_token}`
-      `https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${access_token}`
-      //`https://graph.instagram.com/${user_id}?access_token=${access_token}&fields=media_url,permalink`
-      //`https://v1.nocodeapi.com/alej1286/instagram/DjvHJlfbHHYkiLne`
-      /* ,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      } */
+      //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${facebookToken}`
+      `https://graph.instagram.com/${user_id}/media?fields=media_type,username,caption,id,permalink,media_url,thumbnail_url,children{media_url,thumbnail_url}&access_token=${facebookToken}`
     )
     .then((response) => {
       res.json(response.data);
-      console.log("response.data:", response.data);
     })
     .catch((err) => {
       res.json({
@@ -86,17 +73,7 @@ app.get("/items", async function (req, res) {
         url: req.url,
         event: req.apiGateway.event, // to view all event data
       });
-      console.log("err:", err);
     });
-
-  // console.log(r);
-
-  /* const people = [{ name: "aaaaa" }, { name: "bbbbbbb" }];
-  res.json({
-    success: "get call succeed!",
-    url: req.url,
-    people,
-  }); */
 });
 
 app.get("/items/*", function (req, res) {

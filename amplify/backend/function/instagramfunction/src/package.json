@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
+    "aws-sdk": "^2.1450.0",
     "aws-serverless-express": "^3.3.5",
     "axios": "^1.4.0",
     "body-parser": "^1.17.1",

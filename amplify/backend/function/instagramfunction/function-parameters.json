@@ -9,5 +9,8 @@
       "cloudFormationParameterName": "token",
       "environmentVariableName": "token"
     }
+  ],
+  "secretNames": [
+    "facebookToken"
   ]
 }

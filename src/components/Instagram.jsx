@@ -10,23 +10,22 @@ class Instagram extends Component{
   state = {items:[]}
   async componentDidMount(){
 
-    try {
+   /*  try {
       //const data = await API.get('instagramapi','/items');
       API.get('instagramapi','/items').then(response => {
         console.log(response);
       }).catch(error => console.log(error.response.data));
-      //this.setState({items:data.items});
-      //console.log("data:",data);  
+      this.setState({items:data.items});
+      
     } catch (error) {
       console.log(error);
-    }
+    } */
     
   }
   render(){
   return(
-<div className='mt-24 '>
-
-  <InstaFeeds limit={12}/>
+<div className='mt-24'>
+<InstaFeeds limit={50}/>
 </div>
 
   ) 

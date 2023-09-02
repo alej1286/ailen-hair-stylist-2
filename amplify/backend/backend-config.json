@@ -126,6 +126,14 @@
         }
       ]
     },
+    "AMPLIFY_function_instagramfunction_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
     "AMPLIFY_function_instagramfunction_token": {
       "usedBy": [
         {

@@ -1,4 +1,6 @@
 import React from 'react'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const Feed = (props) => {
     const { id, caption, media_type, media_url} = props.feed
@@ -18,13 +20,15 @@ const Feed = (props) => {
             break;
         case "CAROUSEL_ALBUM":
             post = (
-                <img 
-                    width='100%'
-                    height='auto'
-                    id={id} 
-                    src={media_url} 
-                    alt={caption} 
-                />
+                <Carousel autoPlay="true" infiniteLoop="true" stopOnHover="true">
+                {props.feed.children.data.map(child => (
+                <div key={child.id}>
+                    <a href={props.feed.permalink} target="_blanck">
+                      <img src={child.media_url} alt="instagram" />
+                    </a>
+                </div>
+                ))}
+              </Carousel>
             );
             break;
         default:

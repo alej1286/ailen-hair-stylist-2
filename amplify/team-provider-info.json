@@ -24,9 +24,10 @@
         },
         "instagramfunction": {
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/instagramfunction-725134736b724d6e5967-build.zip",
+          "s3Key": "amplify-builds/instagramfunction-76344377396d74645553-build.zip",
           "userid": "6169887699787604",
-          "token": "IGQWRQNV9Cd2RjcjJ1MUJmVndxdnhpaGVDaEFZAWnpjZAUZAWZA01lNjQ2X2xVbTVIZAHYtS0M2ZA2ppNTFOLUJvM3NUODhlSmFER1NMZAWhYZAG9pUHdPUU5CUVAyUEdQeTNSSHo1NVlRazhHam41am5xWExIU29uSnBtZAkUZD"
+          "token": "IGQWRQNV9Cd2RjcjJ1MUJmVndxdnhpaGVDaEFZAWnpjZAUZAWZA01lNjQ2X2xVbTVIZAHYtS0M2ZA2ppNTFOLUJvM3NUODhlSmFER1NMZAWhYZAG9pUHdPUU5CUVAyUEdQeTNSSHo1NVlRazhHam41am5xWExIU29uSnBtZAkUZD",
+          "secretsPathAmplifyAppId": "daondcek2caec"
         }
       },
       "api": {
