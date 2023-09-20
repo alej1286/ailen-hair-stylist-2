@@ -63,8 +63,14 @@ const Footer = () => {
             </ul>
           </div>
           </div>
-        <div className="mt-8 flex justify-center">
-          <p className="text-base text-white">&copy; {new Date().getFullYear()} Ailen Hair Stylist . All rights reserved.</p>
+          <div  className="mt-8 flex justify-between">
+
+        <div className="">
+          <p className="text-base text-white">Copyright &copy; {new Date().getFullYear()} | Ailen Hair Stylist . All rights reserved.</p>
+        </div>
+        <div className="">
+          <p className="text-base text-white">Powered by <a href="https://www.linkedin.com/in/alejandro-martinez-0b14a182/" target="_blank" rel='noreferrer' className="text-white hover:text-gray-300">alej1286</a></p>
+        </div>
         </div>
       </div>
     </footer>
