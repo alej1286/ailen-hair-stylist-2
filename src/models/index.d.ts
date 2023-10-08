@@ -6,6 +6,38 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerNavigation = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Navigation, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name?: string | null;
+  readonly href?: string | null;
+  readonly current?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyNavigation = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Navigation, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name?: string | null;
+  readonly href?: string | null;
+  readonly current?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Navigation = LazyLoading extends LazyLoadingDisabled ? EagerNavigation : LazyNavigation
+
+export declare const Navigation: (new (init: ModelInit<Navigation>) => Navigation) & {
+  copyOf(source: Navigation, mutator: (draft: MutableModel<Navigation>) => MutableModel<Navigation> | void): Navigation;
+}
+
 type EagerService = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Service, 'id'>;

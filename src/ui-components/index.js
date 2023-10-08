@@ -8,6 +8,8 @@ export { default as AddService } from "./AddService";
 export { default as CandidateCreateForm } from "./CandidateCreateForm";
 export { default as CandidateUpdateForm } from "./CandidateUpdateForm";
 export { default as EditService } from "./EditService";
+export { default as NavigationCreateForm } from "./NavigationCreateForm";
+export { default as NavigationUpdateForm } from "./NavigationUpdateForm";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as ServiceCardCollection } from "./ServiceCardCollection";
 export { default as ServiceCreateForm } from "./ServiceCreateForm";
