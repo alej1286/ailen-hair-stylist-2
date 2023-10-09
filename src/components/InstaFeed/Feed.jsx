@@ -20,13 +20,17 @@ const Feed = (props) => {
             break;
         case "CAROUSEL_ALBUM":
             post = (
-                <Carousel autoPlay="true" infiniteLoop="true" stopOnHover="true">
+                <Carousel autoPlay="true" infiniteLoop="true" stopOnHover="true" showThumbs={false}>
                 {props.feed.children.data.map(child => (
+
                 <div key={child.id}>
                     <a href={props.feed.permalink} target="_blanck">
                       <img src={child.media_url} alt="instagram" />
                     </a>
                 </div>
+                
+            
+
                 ))}
               </Carousel>
             );
