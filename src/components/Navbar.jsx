@@ -10,10 +10,12 @@ import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
 
 import Modal from "@cloudscape-design/components/modal";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
+import { useFetchNavigationApi } from '../api/NavigationApi';
+import { useEffect } from 'react';
 
 
 
-const navigation = [
+/* const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Services', href: '/services', current: false },
   { name: 'Gallery', href: '/gallery', current: false },
@@ -22,7 +24,7 @@ const navigation = [
   { name: 'Privacypolicy', href: '/privacypolicy', current: false },
   { name: 'Contact', href: '/contact', current: false },
   
-]
+] */
 
 /* function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -34,6 +36,8 @@ const classNameFuncSmall = ({ isActive }) => (isActive ? 'no-underline bg-gray-9
 
 
 export default function Navbar(props) {
+  const [navigation, setNavigation] = useState([])
+  const {data, isLoading, isSuccess } = useFetchNavigationApi()
   const { route, signOut } = useAuthenticator((context) => [
     context.route,
     context.signOut,
@@ -44,7 +48,9 @@ export default function Navbar(props) {
     signOut();
     navigate('/login');
   }
-  
+  useEffect(()=>{
+        setNavigation(data);
+  },[data])
   return (
     <Disclosure as="nav" className="bg-gray-800/60 backdrop-blur-md shadow-md"
     /* className="text-5xl fixed top-0 inset-x-0 text-center bg-gray-800/50" */ 
@@ -74,7 +80,7 @@ export default function Navbar(props) {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {navigation?.map((item) => (
                       
                       <NavLink to={item.href} key={item.name}
                         className={classNameFunc}
@@ -155,7 +161,7 @@ export default function Navbar(props) {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
+              {navigation?.map((item) => (
                
                 <NavLink to={item.href} key={item.name}
                 className={classNameFuncSmall}

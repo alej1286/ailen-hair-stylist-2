@@ -7,6 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import './index.css';
 import App from './App';
 import { Amplify } from 'aws-amplify';
@@ -25,6 +26,7 @@ root.render(
           <App />
         </Authenticator.Provider>
       </AmplifyProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );

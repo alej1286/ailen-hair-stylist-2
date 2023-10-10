@@ -17,5 +17,4 @@ type Candidate @model @auth(rules: [{allow: public, operations: [create]}]) {
   name: String!
   email: AWSEmail!
   message: String!
-}
- 
+} 
