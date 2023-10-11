@@ -216,27 +216,6 @@ useEffect(()=>{
           className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
           Services
         </h6>
-       {/*
-        <p className="mb-4">
-          <a href="#!" className="text-neutral-600 dark:text-neutral-200"
-            >Angular</a
-          >
-        </p>
-        <p className="mb-4">
-          <a href="#!" className="text-neutral-600 dark:text-neutral-200"
-            >React</a
-          >
-        </p>
-        <p className="mb-4">
-          <a href="#!" className="text-neutral-600 dark:text-neutral-200"
-            >Vue</a
-          >
-        </p>
-        <p>
-          <a href="#!" className="text-neutral-600 dark:text-neutral-200"
-            >Laravel</a
-          >
-        </p> */}
         <ul>
 
         {services?.map((item) => (
