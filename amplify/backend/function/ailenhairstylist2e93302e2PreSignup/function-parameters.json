@@ -12,5 +12,6 @@
   "triggerTemplate": "PreSignup.json.ejs",
   "triggerEventPath": "PreSignup.event.json",
   "roleName": "ailenhairstylist2e93302e2PreSignup",
-  "skipEdit": true
+  "skipEdit": true,
+  "permissions": {}
 }

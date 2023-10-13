@@ -90,6 +90,7 @@
     },
     "ailenhairstylist2e93302e2PreSignup": {
       "build": true,
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -122,6 +123,22 @@
         {
           "category": "function",
           "resourceName": "ailenhairstylist22b6ec82d"
+        }
+      ]
+    },
+    "AMPLIFY_function_ailenhairstylist2e93302e2PreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ailenhairstylist2e93302e2PreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_ailenhairstylist2e93302e2PreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ailenhairstylist2e93302e2PreSignup"
         }
       ]
     },

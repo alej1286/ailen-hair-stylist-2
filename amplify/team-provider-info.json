@@ -10,7 +10,8 @@
       "StackName": "amplify-amplifyc6f487cfd3d84-staging-120828",
       "StackId": "arn:aws:cloudformation:us-east-1:132478238461:stack/amplify-amplifyc6f487cfd3d84-staging-120828/f8dc7cc0-262c-11ee-8069-0a45a0cab5db",
       "AmplifyAppId": "daondcek2caec",
-      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -29,7 +30,10 @@
           "token": "IGQWRQNV9Cd2RjcjJ1MUJmVndxdnhpaGVDaEFZAWnpjZAUZAWZA01lNjQ2X2xVbTVIZAHYtS0M2ZA2ppNTFOLUJvM3NUODhlSmFER1NMZAWhYZAG9pUHdPUU5CUVAyUEdQeTNSSHo1NVlRazhHam41am5xWExIU29uSnBtZAkUZD",
           "secretsPathAmplifyAppId": "daondcek2caec"
         },
-        "ailenhairstylist2e93302e2PreSignup": {}
+        "ailenhairstylist2e93302e2PreSignup": {
+          "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+          "s3Key": "amplify-builds/ailenhairstylist2e93302e2PreSignup-3458532b316577776f56-build.zip"
+        }
       },
       "api": {
         "ailenhairstylist2": {},
