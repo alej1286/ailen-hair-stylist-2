@@ -14,4 +14,6 @@ export { default as ServiceCard } from "./ServiceCard";
 export { default as ServiceCardCollection } from "./ServiceCardCollection";
 export { default as ServiceCreateForm } from "./ServiceCreateForm";
 export { default as ServiceUpdateForm } from "./ServiceUpdateForm";
+export { default as UserCreateForm } from "./UserCreateForm";
+export { default as UserUpdateForm } from "./UserUpdateForm";
 export { default as studioTheme } from "./studioTheme";
