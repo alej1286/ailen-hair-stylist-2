@@ -39,7 +39,17 @@
   "auth": {
     "ailenhairstylist2e93302e2": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ailenhairstylist2e93302e2PreSignup",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -75,6 +85,11 @@
           "resourceName": "ailenhairstylist2"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "ailenhairstylist2e93302e2PreSignup": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
