@@ -25,10 +25,6 @@
           "userid": "6169887699787604",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
           "s3Key": "amplify-builds/instagramfunction-76344377396d74645553-build.zip"
-        },
-        "ailenhairstylist2e93302e2PreSignup": {
-          "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/ailenhairstylist2e93302e2PreSignup-51665933365a49514466-build.zip"
         }
       },
       "auth": {
@@ -36,6 +32,10 @@
       },
       "storage": {
         "s3ailenhairstylist2storagedb7b9f38": {}
+      },
+      "api": {
+        "ailenhairstylist2": {},
+        "instagramapi": {}
       }
     }
   }

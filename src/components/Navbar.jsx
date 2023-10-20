@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Fragment } from 'react'
@@ -12,6 +13,7 @@ import Modal from "@cloudscape-design/components/modal";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
 import { useFetchNavigationApi } from '../api/NavigationApi';
 import { useEffect } from 'react';
+import { Auth } from 'aws-amplify';
 
 
 
@@ -37,12 +39,32 @@ const classNameFuncSmall = ({ isActive }) => (isActive ? 'no-underline bg-gray-9
 
 export default function Navbar(props) {
   const [navigation, setNavigation] = useState([])
+  const [group, setGroup] = useState('')
   const {data, isLoading, isSuccess } = useFetchNavigationApi()
   const { route, signOut } = useAuthenticator((context) => [
     context.route,
     context.signOut,
   ]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("route:",route)
+    let groupname = null;
+    
+    
+      const checkUser = async() => {
+        const user2 = await Auth.currentAuthenticatedUser();
+        groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0]
+        setGroup(groupname);
+        console.log("groupname:",groupname)
+      }
+    
+      if(route === 'authenticated'){
+        checkUser()
+      }
+  
+  }, [route]);
+
 
   function logOut() {
     signOut();

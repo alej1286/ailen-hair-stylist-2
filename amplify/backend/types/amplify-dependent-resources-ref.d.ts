@@ -15,6 +15,8 @@ export type AmplifyDependentResourcesAttributes = {
     "ailenhairstylist2e93302e2": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
@@ -22,13 +24,6 @@ export type AmplifyDependentResourcesAttributes = {
   },
   "function": {
     "ailenhairstylist22b6ec82d": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "ailenhairstylist2e93302e2PreSignup": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

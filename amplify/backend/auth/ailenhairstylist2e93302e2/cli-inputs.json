@@ -1,6 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
+    "identityPoolName": "ailenhairstylist2d62ed171_identitypool_d62ed171",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "ailenhe93302e2",
     "userPoolName": "ailenhairstylist2e93302e2_userpool_e93302e2",
     "autoVerifiedAttributes": [
@@ -33,7 +35,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "e93302e2",
     "resourceName": "ailenhairstylist2e93302e2",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
@@ -52,30 +54,16 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": [
-      {
-        "category": "function",
-        "resourceName": "ailenhairstylist2e93302e2PreSignup",
-        "triggerProvider": "Cognito",
-        "attributes": [
-          "Arn",
-          "Name"
-        ]
-      }
-    ],
+    "dependsOn": [],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": {
-      "PreSignup": [
-        "custom"
-      ]
-    },
+    "triggers": {},
     "hostedUI": false,
     "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"ailenhairstylist2e93302e2PreSignup\"\n  }\n]",
-    "permissions": []
+    "permissions": [],
+    "thirdPartyAuth": false
   }
 }
