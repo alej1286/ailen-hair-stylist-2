@@ -87,7 +87,7 @@ export default function SocialPost(props) {
               children="New Amplify Studio gives designers the ability to export UI to React code"
               {...getOverrideProps(
                 overrides,
-                "New Amplify Studio gives designers the ability to export UI to React code"
+                "New Amplify Studio gives designers the ability to export UI to React code",
               )}
             ></Text>
             <Flex
@@ -199,7 +199,7 @@ export default function SocialPost(props) {
               children="AWS Amplify Studio is a visual development environment for building full-stack web and mobile apps that grows with your business. Studio builds on existing backend building capabilities in AWS Amplify, allowing you to build your UI faster with a set of ready-to-use UI components that are editable in Figma. With Studio, you can quickly build an entire web app, front-to-back, with minimal coding, while still maintaining full control over your app design and behavior through code. Ship faster, scale effortlessly, and delight every user."
               {...getOverrideProps(
                 overrides,
-                "AWS Amplify Studio is a visual development environment for building full-stack web and mobile apps that grows with your business. Studio builds on existing backend building capabilities in AWS Amplify, allowing you to build your UI faster with a set of ready-to-use UI components that are editable in Figma. With Studio, you can quickly build an entire web app, front-to-back, with minimal coding, while still maintaining full control over your app design and behavior through code. Ship faster, scale effortlessly, and delight every user."
+                "AWS Amplify Studio is a visual development environment for building full-stack web and mobile apps that grows with your business. Studio builds on existing backend building capabilities in AWS Amplify, allowing you to build your UI faster with a set of ready-to-use UI components that are editable in Figma. With Studio, you can quickly build an entire web app, front-to-back, with minimal coding, while still maintaining full control over your app design and behavior through code. Ship faster, scale effortlessly, and delight every user.",
               )}
             ></Text>
           </Flex>

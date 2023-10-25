@@ -10,7 +10,5 @@
       "environmentVariableName": "token"
     }
   ],
-  "secretNames": [
-    "facebookToken"
-  ]
+  "secretNames": ["facebookToken"]
 }

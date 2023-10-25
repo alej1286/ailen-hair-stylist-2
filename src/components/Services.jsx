@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
-import { StorageManager } from '@aws-amplify/ui-react-storage';
+import React, { useState, useEffect } from "react";
+import { StorageManager } from "@aws-amplify/ui-react-storage";
 import { Storage } from "@aws-amplify/storage";
-import {DataStore} from "aws-amplify";
-import { Service } from '../models';
-import { StorageImage } from '@aws-amplify/ui-react-storage';
-import '@aws-amplify/ui-react/styles.css';
+import { DataStore } from "aws-amplify";
+import { Service } from "../models";
+import { StorageImage } from "@aws-amplify/ui-react-storage";
+import "@aws-amplify/ui-react/styles.css";
 
 import {
   Card,
- // VisuallyHidden,
+  // VisuallyHidden,
   Button,
   Flex,
   //Text,
@@ -17,12 +17,14 @@ import {
   //Image,
   //Loader,
   //Icon,
-} from '@aws-amplify/ui-react';
-import { Auth } from 'aws-amplify'
-import { AddService,EditService,ServiceCardCollection, ServiceCard } from "../ui-components";
-
-
-
+} from "@aws-amplify/ui-react";
+import { Auth } from "aws-amplify";
+import {
+  AddService,
+  EditService,
+  ServiceCardCollection,
+  ServiceCard,
+} from "../ui-components";
 
 /* try {
   const src = await Storage.get(key, { level, track, identityId });
@@ -31,7 +33,6 @@ import { AddService,EditService,ServiceCardCollection, ServiceCard } from "../ui
 } catch (error) {
   throw new Error(error);
 } */
-
 
 /* 
 function getFileProperties(key) {
@@ -51,194 +52,197 @@ function getFileProperties(key) {
   }
 } */
 
-
 function Services() {
-  const [isAddingService, setIsAddingService] = useState(true)
-  const [isEditingService, setIsEditingService] = useState(false)
-  const [serviceToUpdate, setServiceToUpdate] = useState(null)
-  const [imagePath, setImagePath] = useState("")
-  const [price, setPrice] = useState("")
-  const [type, setType] = useState("")
+  const [isAddingService, setIsAddingService] = useState(true);
+  const [isEditingService, setIsEditingService] = useState(false);
+  const [serviceToUpdate, setServiceToUpdate] = useState(null);
+  const [imagePath, setImagePath] = useState("");
+  const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
 
-  
-
-  
-  const onSuccess =async  ({ key }) => {
+  const onSuccess = async ({ key }) => {
     //console.log(`Key: ${key}`);
     let src;
-    const imageSrc = await Storage.get(key,{level:"public"}).then(result => {
-      //console.log("key:",key);
+    const imageSrc = await Storage.get(key, { level: "public" }).then(
+      (result) => {
+        //console.log("key:",key);
 
-      /* const currentService = {...serviceToUpdate};
+        /* const currentService = {...serviceToUpdate};
       currentService.imagePath = result;
        */
-      //currentService.imagePath = `https://ailen-hair-stylist-2-storage-db7b9f38120828-staging.s3.amazonaws.com/public/${key}`;
-      //setServiceToUpdate({...serviceToUpdate,  imagePath:`https://ailen-hair-stylist-2-storage-db7b9f38120828-staging.s3.amazonaws.com/public/${key}`});
-      //setServiceToUpdate(currentService);
-      //setServiceToUpdate(currentService);
-      //setImageT(result);
-      
-      if(isEditingService){
-        //updatedService(result);
-        updatedService(key);
-      }
+        //currentService.imagePath = `https://ailen-hair-stylist-2-storage-db7b9f38120828-staging.s3.amazonaws.com/public/${key}`;
+        //setServiceToUpdate({...serviceToUpdate,  imagePath:`https://ailen-hair-stylist-2-storage-db7b9f38120828-staging.s3.amazonaws.com/public/${key}`});
+        //setServiceToUpdate(currentService);
+        //setServiceToUpdate(currentService);
+        //setImageT(result);
 
-      if(isAddingService){
-        //setImagePath(result);
-        setImagePath(key);
-      }
+        if (isEditingService) {
+          //updatedService(result);
+          updatedService(key);
+        }
 
-      src = result;
-    })
-    console.log("imageSrc:",imageSrc);
+        if (isAddingService) {
+          //setImagePath(result);
+          setImagePath(key);
+        }
+
+        src = result;
+      },
+    );
+    console.log("imageSrc:", imageSrc);
     //console.log("src:",src);
-
   };
-  const updatedService = async(imagePath)=>{
-
+  const updatedService = async (imagePath) => {
     const updatedService = await DataStore.save(
-      Service.copyOf(serviceToUpdate, (updated)=>{
+      Service.copyOf(serviceToUpdate, (updated) => {
         updated.imagePath = imagePath;
         updated.price = serviceToUpdate.price;
         updated.type = serviceToUpdate.type;
-      })
-      )
-      setServiceToUpdate(updatedService);
-    } 
+      }),
+    );
+    setServiceToUpdate(updatedService);
+  };
   useEffect(() => {
-    checkUser()
-  }, [])
-  const [user, setUser] = useState({})
-  const [update, setUpdate] = useState(false)
-  const [updateServices, setUpdateServices] = useState() 
+    checkUser();
+  }, []);
+  const [user, setUser] = useState({});
+  const [update, setUpdate] = useState(false);
+  const [updateServices, setUpdateServices] = useState();
   async function checkUser() {
     try {
-      const data = await Auth.currentUserPoolUser()
-      const userInfo = { username: data.username, ...data.attributes, }
-      setUser(userInfo)
-    } catch (err) { console.log('error: ', err) }
+      const data = await Auth.currentUserPoolUser();
+      const userInfo = { username: data.username, ...data.attributes };
+      setUser(userInfo);
+    } catch (err) {
+      console.log("error: ", err);
+    }
   }
   const addServiceOverrides = {
-    Vector:{
-      onClick: ()=> {
-        setIsAddingService(false)
-
-      }
+    Vector: {
+      onClick: () => {
+        setIsAddingService(false);
+      },
     },
-    "UploadNewImage":{
-      children:
-      <StorageManager
-      acceptedFileTypes={['image/*']}
-      accessLevel="public"
-      maxFileCount={1}
-      components={{
-        Container({ children }) {
-          return <Card variation="elevated">{children}</Card>;
-        },
-        DropZone({ children, displayText, inDropZone, ...rest }) {
-          return (
-             <Flex
-            alignItems="center"
-            direction="column"
-            padding="medium"
-              backgroundColor={inDropZone ? 'brand.primary.10' : ''}
-              {...rest}
-              >
-              {/* <Text>Drop files here</Text>
+    UploadNewImage: {
+      children: (
+        <StorageManager
+          acceptedFileTypes={["image/*"]}
+          accessLevel="public"
+          maxFileCount={1}
+          components={{
+            Container({ children }) {
+              return <Card variation="elevated">{children}</Card>;
+            },
+            DropZone({ children, displayText, inDropZone, ...rest }) {
+              return (
+                <Flex
+                  alignItems="center"
+                  direction="column"
+                  padding="medium"
+                  backgroundColor={inDropZone ? "brand.primary.10" : ""}
+                  {...rest}
+                >
+                  {/* <Text>Drop files here</Text>
               <Divider size="small" label="or" maxWidth="10rem" /> */}
-              {children}
-            </Flex> 
-            
-            );
-        },
-        FilePicker({ onClick }) {
-          return (
-            <Button variation="primary" onClick={onClick}>
-              Browse Files
-            </Button>
-          );
-        },
-        FileList({ files, onCancelUpload, onDeleteUpload }) {
-          return (<></>);
-        },
-      }}
-      onUploadSuccess={onSuccess}
-    />
+                  {children}
+                </Flex>
+              );
+            },
+            FilePicker({ onClick }) {
+              return (
+                <Button variation="primary" onClick={onClick}>
+                  Browse Files
+                </Button>
+              );
+            },
+            FileList({ files, onCancelUpload, onDeleteUpload }) {
+              return <></>;
+            },
+          }}
+          onUploadSuccess={onSuccess}
+        />
+      ),
     },
-    "PriceTextField":{
-      onChange: (event) => { setPrice(event.target.value) },
-      value: price
+    PriceTextField: {
+      onChange: (event) => {
+        setPrice(event.target.value);
+      },
+      value: price,
     },
-    "TypeTextField":{
-      onChange: (event) => { setType(event.target.value) },
-      value: type
+    TypeTextField: {
+      onChange: (event) => {
+        setType(event.target.value);
+      },
+      value: type,
     },
-    "SaveButton":{
-      onClick: async() => {
+    SaveButton: {
+      onClick: async () => {
         const newService = await DataStore.save(
           new Service({
             imagePath,
             price,
-            type
-          })
-          )
-      }
+            type,
+          }),
+        );
+      },
     },
-    AddService:{
-      width:"400px",
-      height:"600px"
-    }
-  }
+    AddService: {
+      width: "400px",
+      height: "600px",
+    },
+  };
 
   const editServiceOverrides = {
-    Vector:{
-      onClick: ()=> {setIsEditingService(false)}
+    Vector: {
+      onClick: () => {
+        setIsEditingService(false);
+      },
     },
-    "UploadNewImage":{
-      children:
-      <StorageManager
-      acceptedFileTypes={['image/*']}
-      accessLevel="public"
-      maxFileCount={1}
-      components={{
-        Container({ children }) {
-          return <Card variation="elevated">{children}</Card>;
-        },
-        DropZone({ children, displayText, inDropZone, ...rest }) {
-          return (
-             <Flex
-            alignItems="center"
-            direction="column"
-            padding="medium"
-              backgroundColor={inDropZone ? 'brand.primary.10' : ''}
-              {...rest}
-              >
-              {/* <Text>Drop files here</Text>
+    UploadNewImage: {
+      children: (
+        <StorageManager
+          acceptedFileTypes={["image/*"]}
+          accessLevel="public"
+          maxFileCount={1}
+          components={{
+            Container({ children }) {
+              return <Card variation="elevated">{children}</Card>;
+            },
+            DropZone({ children, displayText, inDropZone, ...rest }) {
+              return (
+                <Flex
+                  alignItems="center"
+                  direction="column"
+                  padding="medium"
+                  backgroundColor={inDropZone ? "brand.primary.10" : ""}
+                  {...rest}
+                >
+                  {/* <Text>Drop files here</Text>
               <Divider size="small" label="or" maxWidth="10rem" /> */}
-              {children}
-            </Flex> 
-            
-            );
-        },
-        FilePicker({ onClick }) {
-          return (
-            <Button variation="primary" onClick={onClick}>
-              Browse Files
-            </Button>
-          );
-        },
-        FileList({ files, onCancelUpload, onDeleteUpload }) {
-          return (<></>);
-        },
-      }}
-      onUploadSuccess={onSuccess}
-    />
+                  {children}
+                </Flex>
+              );
+            },
+            FilePicker({ onClick }) {
+              return (
+                <Button variation="primary" onClick={onClick}>
+                  Browse Files
+                </Button>
+              );
+            },
+            FileList({ files, onCancelUpload, onDeleteUpload }) {
+              return <></>;
+            },
+          }}
+          onUploadSuccess={onSuccess}
+        />
+      ),
     },
-    EditService:{
-      width:"400px",
-      height:"600px"
-    }
-  }
+    EditService: {
+      width: "400px",
+      height: "600px",
+    },
+  };
   return (
     <div className="mt-24">
       <h1 className="text-4xl font-bold mb-4">Our Services</h1>
@@ -251,51 +255,62 @@ function Services() {
           setUpdate(true);
           setUpdateServices(item);}
       })}/> */}
-      {
-        user.username === 'alej1286' && isAddingService && <AddService overrides={addServiceOverrides}/>
-      }
+      {user.username === "alej1286" && isAddingService && (
+        <AddService overrides={addServiceOverrides} />
+      )}
 
-      {
-        user.username === 'alej1286' && isEditingService && <EditService overrides={editServiceOverrides} service={serviceToUpdate}/>
-      }
-      
+      {user.username === "alej1286" && isEditingService && (
+        <EditService
+          overrides={editServiceOverrides}
+          service={serviceToUpdate}
+        />
+      )}
 
-<ServiceCardCollection isPaginated itemsPerPage={6}
-      overrideItems={({item})=>{
-        
-        return {
-          overrides:{
-          imageFrame:{
-           children:
-           <Flex
-           gap="10px"
-           direction="column"
-           width="unset"
-           height="unset"
-           justifyContent="center"
-           alignItems="center"
-           shrink="0"
-           position="relative"
-           padding="0px 0px 0px 0px"
-           children={<StorageImage alt={item.imagePath} imgKey={item.imagePath} accessLevel="public" />}/> 
-          },
-          "Frame 418":{
-            display:user.username === 'alej1286'? "flex" : "none"
-          },
-          "EditButton":{
-            onClick:()=>{
-              setIsEditingService(true)
-              setServiceToUpdate(item)
-            }/* ,
-            isDisabled: user.username === 'alej1286'? false : true */
-          }/* ,
+      <ServiceCardCollection
+        isPaginated
+        itemsPerPage={6}
+        overrideItems={({ item }) => {
+          return {
+            overrides: {
+              imageFrame: {
+                children: (
+                  <Flex
+                    gap="10px"
+                    direction="column"
+                    width="unset"
+                    height="unset"
+                    justifyContent="center"
+                    alignItems="center"
+                    shrink="0"
+                    position="relative"
+                    padding="0px 0px 0px 0px"
+                    children={
+                      <StorageImage
+                        alt={item.imagePath}
+                        imgKey={item.imagePath}
+                        accessLevel="public"
+                      />
+                    }
+                  />
+                ),
+              },
+              "Frame 418": {
+                display: user.username === "alej1286" ? "flex" : "none",
+              },
+              EditButton: {
+                onClick: () => {
+                  setIsEditingService(true);
+                  setServiceToUpdate(item);
+                } /* ,
+            isDisabled: user.username === 'alej1286'? false : true */,
+              } /* ,
           "DeleteButton":{
             isDisabled: user.username === 'alej1286'? false : true
-          } */
+          } */,
+            },
+          };
         }}
-      }}
       />
-
     </div>
   );
 }

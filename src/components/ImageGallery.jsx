@@ -70,7 +70,7 @@ class ImageGallery extends Component {
                       onClick={(event) => {
                         this.props.addTagImage(
                           image.id,
-                          this.state.tagInputValue
+                          this.state.tagInputValue,
                         );
                       }}
                     >

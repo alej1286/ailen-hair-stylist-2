@@ -8,18 +8,23 @@ import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ServiceCardProps } from "./ServiceCard";
 import { CollectionProps } from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type ServiceCardCollectionOverridesProps = {
-    ServiceCardCollection?: PrimitiveOverrideProps<CollectionProps>;
-    ServiceCard?: ServiceCardProps;
+  ServiceCardCollection?: PrimitiveOverrideProps<CollectionProps>;
+  ServiceCard?: ServiceCardProps;
 } & EscapeHatchProps;
-export declare type ServiceCardCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type ServiceCardCollectionProps = React.PropsWithChildren<
+  Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
-        item: any;
-        index: number;
+      item: any;
+      index: number;
     }) => ServiceCardProps;
-} & {
+  } & {
     overrides?: ServiceCardCollectionOverridesProps | undefined | null;
-}>;
-export default function ServiceCardCollection(props: ServiceCardCollectionProps): React.ReactElement;
+  }
+>;
+export default function ServiceCardCollection(
+  props: ServiceCardCollectionProps,
+): React.ReactElement;

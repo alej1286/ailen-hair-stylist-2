@@ -46,7 +46,7 @@ export default function HeroLayout2(props) {
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
-    overridesProp || {}
+    overridesProp || {},
   );
   return (
     <Flex
@@ -138,7 +138,7 @@ export default function HeroLayout2(props) {
             children="Build full-stack web and mobile apps in hours. Easy to start, easy to scale"
             {...getOverrideProps(
               overrides,
-              "Build full-stack web and mobile apps in hours. Easy to start, easy to scale"
+              "Build full-stack web and mobile apps in hours. Easy to start, easy to scale",
             )}
           ></Text>
           <Text
@@ -164,7 +164,7 @@ export default function HeroLayout2(props) {
             children="AWS Amplify is a complete solution that lets frontend web and mobile developers easily build, ship, and host full-stack applications on AWS, with the flexibility to leverage the breadth of AWS services as use cases evolve. No cloud expertise needed."
             {...getOverrideProps(
               overrides,
-              "AWS Amplify is a complete solution that lets frontend web and mobile developers easily build, ship, and host full-stack applications on AWS, with the flexibility to leverage the breadth of AWS services as use cases evolve. No cloud expertise needed."
+              "AWS Amplify is a complete solution that lets frontend web and mobile developers easily build, ship, and host full-stack applications on AWS, with the flexibility to leverage the breadth of AWS services as use cases evolve. No cloud expertise needed.",
             )}
           ></Text>
         </Flex>

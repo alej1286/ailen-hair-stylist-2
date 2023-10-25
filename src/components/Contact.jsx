@@ -1,23 +1,22 @@
 import {
   ButtonGroup,
-	Button,
-	Card,
-	Flex,
-	Heading,
-	Text,
-	View,
-	useTheme,
-	TextField,
-	TextAreaField,
-	FieldGroupIcon,
-	Icon,
-	Link,
-} from '@aws-amplify/ui-react'
-import { BsTwitter, BsJournal, BsYoutube } from 'react-icons/bs'
-import { API } from 'aws-amplify'
-import { createCandidate } from '../graphql/mutations'
+  Button,
+  Card,
+  Flex,
+  Heading,
+  Text,
+  View,
+  useTheme,
+  TextField,
+  TextAreaField,
+  FieldGroupIcon,
+  Icon,
+  Link,
+} from "@aws-amplify/ui-react";
+import { BsTwitter, BsJournal, BsYoutube } from "react-icons/bs";
+import { API } from "aws-amplify";
+import { createCandidate } from "../graphql/mutations";
 //import { InstagramEmbed } from 'react-social-media-embed';
-
 
 const IconEmail = () => {
   return (
@@ -28,158 +27,155 @@ const IconEmail = () => {
   );
 };
 function Contact({ signOut }) {
-  const { tokens } = useTheme()
+  const { tokens } = useTheme();
 
-	const handleFormSubmit = async (e) => {
-		e.preventDefault()
-		const name = e.target.name.value
-		const email = e.target.email.value
-		const message = e.target.message.value
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
 
-		await API.graphql({
-			query: createCandidate,
-			variables: {
-				input: {
-					name,
-					email,
-					message,
-				},
-			},
-		})
-    
-
-
-
-
-	}
+    await API.graphql({
+      query: createCandidate,
+      variables: {
+        input: {
+          name,
+          email,
+          message,
+        },
+      },
+    });
+  };
   return (
-    <Flex justifyContent="center" alignItems="center" height="100vh" className='mt-24'>
-			<Card
-				padding={{ large: tokens.space.xxxl }}
-				variation="elevated"
-				borderRadius={tokens.radii.medium}
-				backgroundColor={tokens.colors.blue[90]}
-			>
-				<Flex
-					direction={{ base: 'column', large: 'row' }}
-					justifyContent={{ large: 'center' }}
-					gap={tokens.space.xl}
-				>
-          <Flex direction={'column'} justifyContent="space-between">
-						
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      height="100vh"
+      className="mt-24"
+    >
+      <Card
+        padding={{ large: tokens.space.xxxl }}
+        variation="elevated"
+        borderRadius={tokens.radii.medium}
+        backgroundColor={tokens.colors.blue[90]}
+      >
+        <Flex
+          direction={{ base: "column", large: "row" }}
+          justifyContent={{ large: "center" }}
+          gap={tokens.space.xl}
+        >
+          <Flex direction={"column"} justifyContent="space-between">
             {/* <InstagramEmbed url='https://www.instagram.com/p/Ct-HZtfsIwc/'/> */}
-            
           </Flex>
-					<Flex direction={'column'} justifyContent="space-between">
-						<View style={{ marginBottom: tokens.space.small }}>
-							<Heading color={tokens.colors.white} level={3}>
-              Contact Us
-							</Heading>
-							<Text color={tokens.colors.neutral[60]}>
-              
-            If you have any questions or would like to schedule a consultation with me, please do not hesitate to do it
-            
-							</Text>
-						</View>
-						<ButtonGroup
-							style={{ marginBottom: tokens.space.small }}
-							color={tokens.colors.neutral[20]}
-							direction={'column'}
-							variation="link"
-						>
-							<Button
-								color={tokens.colors.neutral[40]}
-								justifyContent={'start'}
-								gap="1rem"
-							>
-								<a href="tel:+17867949162"> +1 (786) 794 9162 </a>
-							</Button>
-							<Button
-								color={tokens.colors.neutral[40]}
-								justifyContent={'start'}
-								gap="1rem"
-							>
-								<IconEmail color={tokens.colors.blue[40]} />{' '}
-								<a href={"mailto:ailenmejiastravieso@gmail.com"}>ailenmejiastravieso@gmail.com</a>
-							</Button>
-							<Button
-								color={tokens.colors.neutral[40]}
-								justifyContent={'start'}
-								gap="1rem"
-							> Florida, United
-								States
-							</Button>
-						</ButtonGroup>
-						<Flex style={{ marginLeft: tokens.space.large }}>
-							<Link
-								href="https://twitter.com/"
-								color={tokens.colors.blue[20]}
-								fontSize={'2rem'}
-							>
-								<Icon ariaLabel="twitter" as={BsTwitter} />
-							</Link>
-							<Link
-								href="https://youtube.com/"
-								color={tokens.colors.red[60]}
-								fontSize={'2rem'}
-							>
-								<Icon ariaLabel="youtube" as={BsYoutube} />
-							</Link>
-							<Link
-								href="https://blog.blog.com"
-								color={tokens.colors.green[40]}
-								fontSize={'2rem'}
-							>
-								<Icon ariaLabel="blog" as={BsJournal} />
-							</Link>
-						</Flex>
-					</Flex>
-					<View
-						width={{ base: '70vw', large: '400px' }}
-						backgroundColor={tokens.colors.white}
-						padding={tokens.space.medium}
-						borderRadius={tokens.radii.medium}
-					>
-						<Flex as="form" direction={'column'} onSubmit={handleFormSubmit}>
-							<TextField
-								required
-								label="Your Name"
-								name="name"
-								placeholder="Your name"
-								innerStartComponent={
-									<FieldGroupIcon ariaLabel="">
-										
-									</FieldGroupIcon>
-								}
-							/>
-							<TextField
-								label="Email"
-								name="email"
-								placeholder="you@email.com"
-								type={'email'}
-								required
-								innerStartComponent={
-									<FieldGroupIcon ariaLabel="">
-										
-										<IconEmail />
-									</FieldGroupIcon>
-								}
-							/>
-							<TextAreaField
-								required
-								label="Message"
-								name="message"
-								placeholder="Enter your message"
-							/>
-							<View style={{ marginTop: tokens.space.medium }}>
-								<Button type="submit" variation="primary">
-									Send Message
-								</Button>
-							</View>
-						</Flex>
-					</View>
-				</Flex>
-			</Card>
+          <Flex direction={"column"} justifyContent="space-between">
+            <View style={{ marginBottom: tokens.space.small }}>
+              <Heading color={tokens.colors.white} level={3}>
+                Contact Us
+              </Heading>
+              <Text color={tokens.colors.neutral[60]}>
+                If you have any questions or would like to schedule a
+                consultation with me, please do not hesitate to do it
+              </Text>
+            </View>
+            <ButtonGroup
+              style={{ marginBottom: tokens.space.small }}
+              color={tokens.colors.neutral[20]}
+              direction={"column"}
+              variation="link"
+            >
+              <Button
+                color={tokens.colors.neutral[40]}
+                justifyContent={"start"}
+                gap="1rem"
+              >
+                <a href="tel:+17867949162"> +1 (786) 794 9162 </a>
+              </Button>
+              <Button
+                color={tokens.colors.neutral[40]}
+                justifyContent={"start"}
+                gap="1rem"
+              >
+                <IconEmail color={tokens.colors.blue[40]} />{" "}
+                <a href={"mailto:ailenmejiastravieso@gmail.com"}>
+                  ailenmejiastravieso@gmail.com
+                </a>
+              </Button>
+              <Button
+                color={tokens.colors.neutral[40]}
+                justifyContent={"start"}
+                gap="1rem"
+              >
+                {" "}
+                Florida, United States
+              </Button>
+            </ButtonGroup>
+            <Flex style={{ marginLeft: tokens.space.large }}>
+              <Link
+                href="https://twitter.com/"
+                color={tokens.colors.blue[20]}
+                fontSize={"2rem"}
+              >
+                <Icon ariaLabel="twitter" as={BsTwitter} />
+              </Link>
+              <Link
+                href="https://youtube.com/"
+                color={tokens.colors.red[60]}
+                fontSize={"2rem"}
+              >
+                <Icon ariaLabel="youtube" as={BsYoutube} />
+              </Link>
+              <Link
+                href="https://blog.blog.com"
+                color={tokens.colors.green[40]}
+                fontSize={"2rem"}
+              >
+                <Icon ariaLabel="blog" as={BsJournal} />
+              </Link>
+            </Flex>
+          </Flex>
+          <View
+            width={{ base: "70vw", large: "400px" }}
+            backgroundColor={tokens.colors.white}
+            padding={tokens.space.medium}
+            borderRadius={tokens.radii.medium}
+          >
+            <Flex as="form" direction={"column"} onSubmit={handleFormSubmit}>
+              <TextField
+                required
+                label="Your Name"
+                name="name"
+                placeholder="Your name"
+                innerStartComponent={
+                  <FieldGroupIcon ariaLabel=""></FieldGroupIcon>
+                }
+              />
+              <TextField
+                label="Email"
+                name="email"
+                placeholder="you@email.com"
+                type={"email"}
+                required
+                innerStartComponent={
+                  <FieldGroupIcon ariaLabel="">
+                    <IconEmail />
+                  </FieldGroupIcon>
+                }
+              />
+              <TextAreaField
+                required
+                label="Message"
+                name="message"
+                placeholder="Enter your message"
+              />
+              <View style={{ marginTop: tokens.space.medium }}>
+                <Button type="submit" variation="primary">
+                  Send Message
+                </Button>
+              </View>
+            </Flex>
+          </View>
+        </Flex>
+      </Card>
       {/* <div id="contact" className="bg-gray-100 w-full min-h-screen p-2 flex items-center">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
@@ -340,7 +336,7 @@ function Contact({ signOut }) {
        </div>
       </div> */}
       <Button onClick={signOut}>Sign Out</Button>
-		</Flex>
+    </Flex>
   );
 }
 

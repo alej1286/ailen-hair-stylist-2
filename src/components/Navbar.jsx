@@ -14,6 +14,7 @@ import TopNavigation from "@cloudscape-design/components/top-navigation";
 import { useFetchNavigationApi } from '../api/NavigationApi';
 import { useEffect } from 'react';
 import { Auth } from 'aws-amplify';
+import { useRolReposStore } from './../store/RolRepo';
 
 
 
@@ -46,9 +47,12 @@ export default function Navbar(props) {
     context.signOut,
   ]);
   const navigate = useNavigate();
-
+  const { rol } = useRolReposStore();
+  const setRol = useRolReposStore((state) => state.setRol)
+  
   useEffect(() => {
     console.log("route:",route)
+    console.log("rol:",rol)
     let groupname = null;
     
     
@@ -57,6 +61,7 @@ export default function Navbar(props) {
         groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0]
         setGroup(groupname);
         console.log("groupname:",groupname)
+        setRol(groupname)
       }
     
       if(route === 'authenticated'){

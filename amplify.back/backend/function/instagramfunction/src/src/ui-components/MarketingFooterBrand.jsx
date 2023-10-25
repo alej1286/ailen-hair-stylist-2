@@ -536,7 +536,7 @@ export default function MarketingFooterBrand(props) {
           children="© 2023 AWS Amplify UI. All rights reserved."
           {...getOverrideProps(
             overrides,
-            "\u00A9 2023 AWS Amplify UI. All rights reserved."
+            "\u00A9 2023 AWS Amplify UI. All rights reserved.",
           )}
         ></Text>
       </Flex>

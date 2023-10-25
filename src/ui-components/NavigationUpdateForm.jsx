@@ -67,7 +67,7 @@ export default function NavigationUpdateForm(props) {
   const runValidationTasks = async (
     fieldName,
     currentValue,
-    getDisplayValue
+    getDisplayValue,
   ) => {
     const value =
       currentValue && getDisplayValue
@@ -99,16 +99,16 @@ export default function NavigationUpdateForm(props) {
             if (Array.isArray(modelFields[fieldName])) {
               promises.push(
                 ...modelFields[fieldName].map((item) =>
-                  runValidationTasks(fieldName, item)
-                )
+                  runValidationTasks(fieldName, item),
+                ),
               );
               return promises;
             }
             promises.push(
-              runValidationTasks(fieldName, modelFields[fieldName])
+              runValidationTasks(fieldName, modelFields[fieldName]),
             );
             return promises;
-          }, [])
+          }, []),
         );
         if (validationResponses.some((r) => r.hasError)) {
           return;
@@ -125,7 +125,7 @@ export default function NavigationUpdateForm(props) {
           await DataStore.save(
             Navigation.copyOf(navigationRecord, (updated) => {
               Object.assign(updated, modelFields);
-            })
+            }),
           );
           if (onSuccess) {
             onSuccess(modelFields);

@@ -1,8 +1,6 @@
 {
   "trigger": true,
-  "modules": [
-    "custom"
-  ],
+  "modules": ["custom"],
   "parentResource": "ailenhairstylist2e93302e2",
   "functionName": "ailenhairstylist2e93302e2PreSignup",
   "resourceName": "ailenhairstylist2e93302e2PreSignup",
@@ -15,9 +13,7 @@
   "skipEdit": true,
   "permissions": {
     "api": {
-      "ailenhairstylist2": [
-        "Mutation"
-      ]
+      "ailenhairstylist2": ["Mutation"]
     }
   }
 }

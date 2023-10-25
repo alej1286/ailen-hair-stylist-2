@@ -48,7 +48,7 @@ export default function HeroLayout1(props) {
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
-    overridesProp || {}
+    overridesProp || {},
   );
   return (
     <Flex

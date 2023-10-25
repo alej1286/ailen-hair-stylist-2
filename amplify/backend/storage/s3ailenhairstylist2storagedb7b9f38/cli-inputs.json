@@ -3,12 +3,6 @@
   "bucketName": "ailen-hair-stylist-2-storage-db7b9f38",
   "policyUUID": "a89da232",
   "storageAccess": "authAndGuest",
-  "guestAccess": [
-    "READ"
-  ],
-  "authAccess": [
-    "READ",
-    "CREATE_AND_UPDATE",
-    "DELETE"
-  ]
+  "guestAccess": ["READ"],
+  "authAccess": ["READ", "CREATE_AND_UPDATE", "DELETE"]
 }

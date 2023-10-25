@@ -7,13 +7,52 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { IconProps } from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type MyIconOverridesProps = {
-    MyIcon?: PrimitiveOverrideProps<IconProps>;
+  MyIcon?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type MyIconProps = React.PropsWithChildren<Partial<IconProps> & {
-    type?: "alert" | "arrow-right" | "authentication" | "bookmark_border" | "chat" | "chat-bubble-outline" | "checkmark" | "close" | "content" | "dashboard" | "data" | "delete" | "edit" | "email" | "favorite" | "favorite_border" | "file" | "function" | "group" | "home" | "info" | "instagram" | "location" | "more_horiz" | "more_vert" | "notification" | "phone" | "reply" | "send" | "settings" | "share" | "shopping_bag" | "shuffle" | "storage" | "twitter" | "warning";
-} & {
+export declare type MyIconProps = React.PropsWithChildren<
+  Partial<IconProps> & {
+    type?:
+      | "alert"
+      | "arrow-right"
+      | "authentication"
+      | "bookmark_border"
+      | "chat"
+      | "chat-bubble-outline"
+      | "checkmark"
+      | "close"
+      | "content"
+      | "dashboard"
+      | "data"
+      | "delete"
+      | "edit"
+      | "email"
+      | "favorite"
+      | "favorite_border"
+      | "file"
+      | "function"
+      | "group"
+      | "home"
+      | "info"
+      | "instagram"
+      | "location"
+      | "more_horiz"
+      | "more_vert"
+      | "notification"
+      | "phone"
+      | "reply"
+      | "send"
+      | "settings"
+      | "share"
+      | "shopping_bag"
+      | "shuffle"
+      | "storage"
+      | "twitter"
+      | "warning";
+  } & {
     overrides?: MyIconOverridesProps | undefined | null;
-}>;
+  }
+>;
 export default function MyIcon(props: MyIconProps): React.ReactElement;

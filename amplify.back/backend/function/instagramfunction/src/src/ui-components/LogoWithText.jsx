@@ -102,7 +102,7 @@ export default function LogoWithText(props) {
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
-    overridesProp || {}
+    overridesProp || {},
   );
   return (
     <View

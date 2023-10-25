@@ -12,7 +12,9 @@ function Home() {
               We Make You Look Your Best
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Our team of experienced hair stylists are dedicated to making you look and feel your best. We offer a wide range of services to meet all of your hair care needs.
+              Our team of experienced hair stylists are dedicated to making you
+              look and feel your best. We offer a wide range of services to meet
+              all of your hair care needs.
             </p>
           </div>
         </div>
@@ -40,7 +42,8 @@ function Home() {
                       Haircuts for Men and Women
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                      Our experienced stylists will give you the perfect cut to match your style and personality.
+                      Our experienced stylists will give you the perfect cut to
+                      match your style and personality.
                     </p>
                   </div>
                 </div>
@@ -58,7 +61,8 @@ function Home() {
                       Hair Color and Highlights
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                      Let our expert colorists give you the perfect shade to complement your skin tone and enhance your natural beauty.
+                      Let our expert colorists give you the perfect shade to
+                      complement your skin tone and enhance your natural beauty.
                     </p>
                   </div>
                 </div>
@@ -78,7 +82,8 @@ function Home() {
                       Hair Extensions
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                      Add length and volume to your hair with our high-quality hair extensions.
+                      Add length and volume to your hair with our high-quality
+                      hair extensions.
                     </p>
                   </div>
                 </div>
@@ -96,7 +101,8 @@ function Home() {
                       Bridal and Special Occasion Styling
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                      Let us create a beautiful and unique hairstyle for your special day.
+                      Let us create a beautiful and unique hairstyle for your
+                      special day.
                     </p>
                   </div>
                 </div>
@@ -130,7 +136,8 @@ function Home() {
                     Jane Doe
                   </h3>
                   <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                    With over 10 years of experience in the industry, Jane specializes in hair color and highlights.
+                    With over 10 years of experience in the industry, Jane
+                    specializes in hair color and highlights.
                   </p>
                 </div>
               </div>
@@ -148,7 +155,8 @@ function Home() {
                     John Smith
                   </h3>
                   <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                    As a master stylist with over 15 years of experience, John is known for his precision haircuts for men and women.
+                    As a master stylist with over 15 years of experience, John
+                    is known for his precision haircuts for men and women.
                   </p>
                 </div>
               </div>
@@ -168,7 +176,8 @@ function Home() {
                     Sarah Johnson
                   </h3>
                   <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                    With a passion for bridal and special occasion styling, Sarah has over 8 years of experience in the industry.
+                    With a passion for bridal and special occasion styling,
+                    Sarah has over 8 years of experience in the industry.
                   </p>
                 </div>
               </div>
@@ -186,7 +195,9 @@ function Home() {
                     Emily Davis
                   </h3>
                   <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                    As a certified hair extension specialist, Emily has over 5 years of experience creating beautiful and natural-looking extensions.
+                    As a certified hair extension specialist, Emily has over 5
+                    years of experience creating beautiful and natural-looking
+                    extensions.
                   </p>
                 </div>
               </div>
@@ -202,10 +213,12 @@ function Home() {
               Book Your Appointment Today
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Contact us to schedule your appointment and experience the best hair care services in town.
+              Contact us to schedule your appointment and experience the best
+              hair care services in town.
             </p>
             <div className="mt-6">
-              <a href="#"
+              <a
+                href="#"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
               >
                 Book Now

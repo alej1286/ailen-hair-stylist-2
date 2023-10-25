@@ -4,7 +4,7 @@
 	API_AILENHAIRSTYLIST2_GRAPHQLAPIKEYOUTPUT
 	ENV
 	REGION
-Amplify Params - DO NOT EDIT *//**
+Amplify Params - DO NOT EDIT */ /**
  * @fileoverview
  *
  * This CloudFormation Trigger creates a handler which awaits the other handlers
@@ -15,7 +15,7 @@ Amplify Params - DO NOT EDIT *//**
  * The names of modules to load are stored as a comma-delimited string in the
  * `MODULES` env var.
  */
-const moduleNames = process.env.MODULES.split(',');
+const moduleNames = process.env.MODULES.split(",");
 /**
  * The array of imported modules.
  */

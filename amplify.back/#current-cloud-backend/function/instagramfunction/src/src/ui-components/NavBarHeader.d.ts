@@ -9,20 +9,25 @@ import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { LogoWithTextProps } from "./LogoWithText";
 import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 import { MyIconProps } from "./MyIcon";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarHeaderOverridesProps = {
-    NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
-    LogoWithText?: LogoWithTextProps;
-    "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
-    Dashboard?: PrimitiveOverrideProps<TextProps>;
-    Jobs?: PrimitiveOverrideProps<TextProps>;
-    Applicants?: PrimitiveOverrideProps<TextProps>;
-    Company?: PrimitiveOverrideProps<TextProps>;
-    "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon?: MyIconProps;
-    image?: PrimitiveOverrideProps<ImageProps>;
+  NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
+  LogoWithText?: LogoWithTextProps;
+  "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
+  Dashboard?: PrimitiveOverrideProps<TextProps>;
+  Jobs?: PrimitiveOverrideProps<TextProps>;
+  Applicants?: PrimitiveOverrideProps<TextProps>;
+  Company?: PrimitiveOverrideProps<TextProps>;
+  "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
+  MyIcon?: MyIconProps;
+  image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
-export declare type NavBarHeaderProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type NavBarHeaderProps = React.PropsWithChildren<
+  Partial<FlexProps> & {
     overrides?: NavBarHeaderOverridesProps | undefined | null;
-}>;
-export default function NavBarHeader(props: NavBarHeaderProps): React.ReactElement;
+  }
+>;
+export default function NavBarHeader(
+  props: NavBarHeaderProps,
+): React.ReactElement;

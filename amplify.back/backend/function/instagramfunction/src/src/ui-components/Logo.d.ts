@@ -7,14 +7,17 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps, IconProps } from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type LogoOverridesProps = {
-    Logo?: PrimitiveOverrideProps<FlexProps>;
-    Union?: PrimitiveOverrideProps<IconProps>;
+  Logo?: PrimitiveOverrideProps<FlexProps>;
+  Union?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type LogoProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type LogoProps = React.PropsWithChildren<
+  Partial<FlexProps> & {
     color?: "brand" | "neutral";
-} & {
+  } & {
     overrides?: LogoOverridesProps | undefined | null;
-}>;
+  }
+>;
 export default function Logo(props: LogoProps): React.ReactElement;

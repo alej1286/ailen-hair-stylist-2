@@ -219,7 +219,7 @@ export default function ReviewCard(props) {
             children="Information about this product."
             {...getOverrideProps(
               overrides,
-              "Information about this product.29766836"
+              "Information about this product.29766836",
             )}
           ></Text>
           <Text
@@ -245,7 +245,7 @@ export default function ReviewCard(props) {
             children="Information about this product."
             {...getOverrideProps(
               overrides,
-              "Information about this product.29766837"
+              "Information about this product.29766837",
             )}
           ></Text>
         </Flex>

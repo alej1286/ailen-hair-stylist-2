@@ -7,14 +7,17 @@
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ButtonProps, FlexProps, TextProps } from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type DataRowOverridesProps = {
-    DataRow?: PrimitiveOverrideProps<FlexProps>;
-    label?: PrimitiveOverrideProps<TextProps>;
-    value?: PrimitiveOverrideProps<TextProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+  DataRow?: PrimitiveOverrideProps<FlexProps>;
+  label?: PrimitiveOverrideProps<TextProps>;
+  value?: PrimitiveOverrideProps<TextProps>;
+  Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type DataRowProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type DataRowProps = React.PropsWithChildren<
+  Partial<FlexProps> & {
     overrides?: DataRowOverridesProps | undefined | null;
-}>;
+  }
+>;
 export default function DataRow(props: DataRowProps): React.ReactElement;

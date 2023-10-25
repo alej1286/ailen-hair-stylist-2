@@ -92,7 +92,7 @@ export default function CTASection(props) {
             children="Stay in touch and never miss an update"
             {...getOverrideProps(
               overrides,
-              "Stay in touch and never miss an update"
+              "Stay in touch and never miss an update",
             )}
           ></Text>
           <Text
@@ -116,7 +116,7 @@ export default function CTASection(props) {
             children="Keep up to date on the latest and greatest in the frontend and fullstack community"
             {...getOverrideProps(
               overrides,
-              "Keep up to date on the latest and greatest in the frontend and fullstack community"
+              "Keep up to date on the latest and greatest in the frontend and fullstack community",
             )}
           ></Text>
         </Flex>

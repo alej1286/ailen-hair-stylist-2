@@ -39,7 +39,7 @@ export default function Logo(props) {
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
-    overridesProp || {}
+    overridesProp || {},
   );
   return (
     <Flex

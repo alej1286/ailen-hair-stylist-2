@@ -581,7 +581,7 @@ export default function MyIcon(props) {
   ];
   const overrides = mergeVariantsAndOverrides(
     getOverridesFromVariants(variants, props),
-    overridesProp || {}
+    overridesProp || {},
   );
   return (
     <Icon

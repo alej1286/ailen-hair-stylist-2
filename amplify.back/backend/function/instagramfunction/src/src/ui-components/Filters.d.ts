@@ -6,15 +6,22 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, FlexProps, SelectFieldProps } from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+import {
+  ButtonProps,
+  FlexProps,
+  SelectFieldProps,
+} from "@aws-amplify/ui-react";
+export declare type PrimitiveOverrideProps<T> = Partial<T> &
+  React.DOMAttributes<HTMLDivElement>;
 export declare type FiltersOverridesProps = {
-    Filters?: PrimitiveOverrideProps<FlexProps>;
-    SelectField38963527?: PrimitiveOverrideProps<SelectFieldProps>;
-    SelectField38963544?: PrimitiveOverrideProps<SelectFieldProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+  Filters?: PrimitiveOverrideProps<FlexProps>;
+  SelectField38963527?: PrimitiveOverrideProps<SelectFieldProps>;
+  SelectField38963544?: PrimitiveOverrideProps<SelectFieldProps>;
+  Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type FiltersProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type FiltersProps = React.PropsWithChildren<
+  Partial<FlexProps> & {
     overrides?: FiltersOverridesProps | undefined | null;
-}>;
+  }
+>;
 export default function Filters(props: FiltersProps): React.ReactElement;

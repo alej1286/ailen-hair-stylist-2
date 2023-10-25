@@ -62,7 +62,7 @@ app.get("/items", async function (req, res) {
   const r = await axios
     .get(
       //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${facebookToken}`
-      `https://graph.instagram.com/${user_id}/media?fields=media_type,username,caption,id,permalink,media_url,thumbnail_url,children{media_url,thumbnail_url}&access_token=${facebookToken}`
+      `https://graph.instagram.com/${user_id}/media?fields=media_type,username,caption,id,permalink,media_url,thumbnail_url,children{media_url,thumbnail_url}&access_token=${facebookToken}`,
     )
     .then((response) => {
       res.json(response.data);

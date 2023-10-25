@@ -229,7 +229,7 @@ export default function CommentCard(props) {
             children="“Lorem ipsum dolor sit amet, consectetur adipiscing elit. ”"
             {...getOverrideProps(
               overrides,
-              "\u201CLorem ipsum dolor sit amet, consectetur adipiscing elit. \u201D"
+              "\u201CLorem ipsum dolor sit amet, consectetur adipiscing elit. \u201D",
             )}
           ></Text>
         </Flex>
