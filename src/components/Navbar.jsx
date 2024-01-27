@@ -1,20 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Fragment } from "react";
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Fragment } from 'react'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
 
 import Modal from "@cloudscape-design/components/modal";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
-import { useFetchNavigationApi } from "../api/NavigationApi";
-import { useEffect } from "react";
-import { Auth } from "aws-amplify";
-import { useRolReposStore } from "./../store/RolRepo";
+import { useFetchNavigationApi } from '../api/NavigationApi';
+import { useEffect } from 'react';
+import { Auth } from 'aws-amplify';
+import { useRolReposStore } from './../store/RolRepo';
+
+
 
 /* const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -31,29 +33,25 @@ import { useRolReposStore } from "./../store/RolRepo";
   return classes.filter(Boolean).join(' ')
 } */
 
-const classNameFunc = ({ isActive }) =>
-  isActive
-    ? " no-underline bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-    : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium";
+const classNameFunc = ({ isActive }) => (isActive ? ' no-underline bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' : 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium');
 
-const classNameFuncSmall = ({ isActive }) =>
-  isActive
-    ? "no-underline bg-gray-900 text-white rounded-md px-5 py-1 text-sm font-medium"
-    : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium:bg-gray-700";
+const classNameFuncSmall = ({ isActive }) => (isActive ? 'no-underline bg-gray-900 text-white rounded-md px-5 py-1 text-sm font-medium' : 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium:bg-gray-700');
+
 
 export default function Navbar(props) {
-  const [navigation, setNavigation] = useState([]);
-  const [group, setGroup] = useState("");
-  const { data, isLoading, isSuccess } = useFetchNavigationApi();
+  const [navigation, setNavigation] = useState([])
+  const [group, setGroup] = useState('')
+  const {data, isLoading, isSuccess } = useFetchNavigationApi()
   const { route, signOut } = useAuthenticator((context) => [
     context.route,
     context.signOut,
   ]);
   const navigate = useNavigate();
   const { rol } = useRolReposStore();
-  const setRol = useRolReposStore((state) => state.setRol);
-
+  const setRol = useRolReposStore((state) => state.setRol)
+  
   useEffect(() => {
+<<<<<<< HEAD
     /* console.log("route:", route);
     console.log("rol:", rol);
      */
@@ -69,21 +67,43 @@ export default function Navbar(props) {
     if (route === "authenticated") {
       checkUser();
     }
+=======
+    console.log("route:",route)
+    console.log("rol:",rol)
+    let groupname = null;
+    
+    
+      const checkUser = async() => {
+        const user2 = await Auth.currentAuthenticatedUser();
+        groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0]
+        setGroup(groupname);
+        console.log("groupname:",groupname)
+        setRol(groupname)
+      }
+    
+      if(route === 'authenticated'){
+        checkUser()
+      }
+  
+>>>>>>> parent of dc8114f (prettier Navbar)
   }, [route]);
+
 
   function logOut() {
     signOut();
+<<<<<<< HEAD
     setRol("");
     navigate("/login");
+=======
+    navigate('/login');
+>>>>>>> parent of dc8114f (prettier Navbar)
   }
-  useEffect(() => {
-    setNavigation(data);
-  }, [data]);
+  useEffect(()=>{
+        setNavigation(data);
+  },[data])
   return (
-    <Disclosure
-      as="nav"
-      className="bg-gray-800/60 backdrop-blur-md shadow-md"
-      /* className="text-5xl fixed top-0 inset-x-0 text-center bg-gray-800/50" */
+    <Disclosure as="nav" className="bg-gray-800/60 backdrop-blur-md shadow-md"
+    /* className="text-5xl fixed top-0 inset-x-0 text-center bg-gray-800/50" */ 
     >
       {({ open }) => (
         <>
@@ -111,9 +131,8 @@ export default function Navbar(props) {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation?.map((item) => (
-                      <NavLink
-                        to={item.href}
-                        key={item.name}
+                      
+                      <NavLink to={item.href} key={item.name}
                         className={classNameFunc}
                         /* aria-current={item.current ? 'page' : undefined} */
                       >
@@ -124,24 +143,15 @@ export default function Navbar(props) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {route !== "authenticated" ? (
-                  <button
-                    className="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                    onClick={() => navigate("/login")}
-                  >
-                    Login
-                  </button>
-                ) : (
-                  <button
-                    className="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                    onClick={() => logOut()}
-                  >
-                    Logout
-                  </button>
-                )}
-
+              {route !== 'authenticated' ? (
+          <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => navigate('/login')}>Login</button>
+        ) : (
+          <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => logOut()}>Logout</button>
+        )}
+                
+               
                 {/* Profile dropdown */}
-                {/*  <Menu as="div" className="relative ml-3">
+               {/*  <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
@@ -202,18 +212,19 @@ export default function Navbar(props) {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation?.map((item) => (
-                <NavLink
-                  to={item.href}
-                  key={item.name}
-                  className={classNameFuncSmall}
-                >
-                  {item.name}
-                </NavLink>
+               
+                <NavLink to={item.href} key={item.name}
+                className={classNameFuncSmall}
+               
+              >
+                {item.name}
+              </NavLink>
               ))}
+              
             </div>
           </Disclosure.Panel>
         </>
       )}
     </Disclosure>
-  );
+  )
 }
