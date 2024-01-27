@@ -16,13 +16,13 @@
     "s3Key": {
       "Type": "String"
     },
+    "secretsPathAmplifyAppId": {
+      "Type": "String"
+    },
     "userid": {
       "Type": "String"
     },
     "token": {
-      "Type": "String"
-    },
-    "secretsPathAmplifyAppId": {
       "Type": "String"
     }
   },
@@ -79,12 +79,6 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "userid": {
-              "Ref": "userid"
-            },
-            "token": {
-              "Ref": "token"
-            },
             "facebookToken": {
               "Fn::Join": [
                 "",
@@ -106,6 +100,12 @@
                   "facebookToken"
                 ]
               ]
+            },
+            "userid": {
+              "Ref": "userid"
+            },
+            "token": {
+              "Ref": "token"
             }
           }
         },

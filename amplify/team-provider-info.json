@@ -20,10 +20,10 @@
         },
         "instagramfunction": {
           "secretsPathAmplifyAppId": "daondcek2caec",
-          "token": "IGQWRQNV9Cd2RjcjJ1MUJmVndxdnhpaGVDaEFZAWnpjZAUZAWZA01lNjQ2X2xVbTVIZAHYtS0M2ZA2ppNTFOLUJvM3NUODhlSmFER1NMZAWhYZAG9pUHdPUU5CUVAyUEdQeTNSSHo1NVlRazhHam41am5xWExIU29uSnBtZAkUZD",
-          "userid": "6169887699787604",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/instagramfunction-76344377396d74645553-build.zip"
+          "s3Key": "amplify-builds/instagramfunction-59366935644f56526271-build.zip",
+          "userid": "3273328299625758",
+          "token": "IGQWRQc2pFYzhMcEkyYmp5N0tPRFB5b0ZAHNXhiM2p5LWczWnBHdkJsaTJOMUVuaFJuNmhhcVdNcUxHRWRJQUdTbUs3b19yLVoxaTE0VG9lN2c3LVJseUl2cnRFcDluVGQ0c2d5bUI2NU96aGI0NzJqbVVodk5ScUUZD"
         }
       },
       "auth": {
@@ -31,6 +31,10 @@
       },
       "storage": {
         "s3ailenhairstylist2storagedb7b9f38": {}
+      },
+      "api": {
+        "ailenhairstylist2": {},
+        "instagramapi": {}
       }
     }
   }
