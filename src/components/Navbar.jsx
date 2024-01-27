@@ -51,23 +51,6 @@ export default function Navbar(props) {
   const setRol = useRolReposStore((state) => state.setRol)
   
   useEffect(() => {
-<<<<<<< HEAD
-    /* console.log("route:", route);
-    console.log("rol:", rol);
-     */
-    let groupname = null;
-
-    const checkUser = async () => {
-      const user2 = await Auth.currentAuthenticatedUser();
-      groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0];
-      setGroup(groupname);
-      setRol(groupname);
-    };
-
-    if (route === "authenticated") {
-      checkUser();
-    }
-=======
     console.log("route:",route)
     console.log("rol:",rol)
     let groupname = null;
@@ -85,18 +68,14 @@ export default function Navbar(props) {
         checkUser()
       }
   
->>>>>>> parent of dc8114f (prettier Navbar)
   }, [route]);
 
 
   function logOut() {
     signOut();
-<<<<<<< HEAD
     setRol("");
     navigate("/login");
-=======
-    navigate('/login');
->>>>>>> parent of dc8114f (prettier Navbar)
+
   }
   useEffect(()=>{
         setNavigation(data);

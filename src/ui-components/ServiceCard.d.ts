@@ -6,34 +6,33 @@
 
 import * as React from "react";
 import { Service } from "../models";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import {
-  ButtonProps,
-  FlexProps,
-  ImageProps,
-  TextProps,
-} from "@aws-amplify/ui-react";
-export declare type PrimitiveOverrideProps<T> = Partial<T> &
-  React.DOMAttributes<HTMLDivElement>;
+import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ServiceCardOverridesProps = {
-  ServiceCard?: PrimitiveOverrideProps<FlexProps>;
-  imageFrame?: PrimitiveOverrideProps<FlexProps>;
-  image?: PrimitiveOverrideProps<ImageProps>;
-  Name?: PrimitiveOverrideProps<FlexProps>;
-  Type?: PrimitiveOverrideProps<TextProps>;
-  Price?: PrimitiveOverrideProps<TextProps>;
-  "Frame 418"?: PrimitiveOverrideProps<FlexProps>;
-  EditButton?: PrimitiveOverrideProps<ButtonProps>;
-  DeleteButton?: PrimitiveOverrideProps<ButtonProps>;
+    ServiceCard?: PrimitiveOverrideProps<FlexProps>;
+    imageFrame?: PrimitiveOverrideProps<FlexProps>;
+    image?: PrimitiveOverrideProps<ImageProps>;
+    Name?: PrimitiveOverrideProps<FlexProps>;
+    Type?: PrimitiveOverrideProps<TextProps>;
+    Price?: PrimitiveOverrideProps<TextProps>;
+    "Frame 418"?: PrimitiveOverrideProps<FlexProps>;
+    EditButton?: PrimitiveOverrideProps<ButtonProps>;
+    DeleteButton?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type ServiceCardProps = React.PropsWithChildren<
-  Partial<FlexProps> & {
+export declare type ServiceCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     imageFrame?: React.ReactNode;
     service?: Service;
-  } & {
+} & {
     overrides?: ServiceCardOverridesProps | undefined | null;
-  }
->;
-export default function ServiceCard(
-  props: ServiceCardProps,
-): React.ReactElement;
+}>;
+export default function ServiceCard(props: ServiceCardProps): React.ReactElement;

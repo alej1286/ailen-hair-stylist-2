@@ -9,8 +9,7 @@
       "UnauthRoleName": "amplify-amplifyc6f487cfd3d84-staging-120828-unauthRole",
       "StackName": "amplify-amplifyc6f487cfd3d84-staging-120828",
       "StackId": "arn:aws:cloudformation:us-east-1:132478238461:stack/amplify-amplifyc6f487cfd3d84-staging-120828/f8dc7cc0-262c-11ee-8069-0a45a0cab5db",
-      "AmplifyAppId": "daondcek2caec",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "AmplifyAppId": "daondcek2caec"
     },
     "categories": {
       "function": {
@@ -32,10 +31,6 @@
       },
       "storage": {
         "s3ailenhairstylist2storagedb7b9f38": {}
-      },
-      "api": {
-        "ailenhairstylist2": {},
-        "instagramapi": {}
       }
     }
   }

@@ -1,0 +1,182 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyc6f487cfd3d84-staging-120828-authRole",
+      "UnauthRoleArn": "arn:aws:iam::132478238461:role/amplify-amplifyc6f487cfd3d84-staging-120828-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::132478238461:role/amplify-amplifyc6f487cfd3d84-staging-120828-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+      "UnauthRoleName": "amplify-amplifyc6f487cfd3d84-staging-120828-unauthRole",
+      "StackName": "amplify-amplifyc6f487cfd3d84-staging-120828",
+      "StackId": "arn:aws:cloudformation:us-east-1:132478238461:stack/amplify-amplifyc6f487cfd3d84-staging-120828/f8dc7cc0-262c-11ee-8069-0a45a0cab5db",
+      "AmplifyAppId": "daondcek2caec"
+    }
+  },
+  "api": {
+    "ailenhairstylist2": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        },
+        "GraphQLAPIIdOutput": "3ytduczsdfgzfj56ecpz7usl6u",
+        "GraphQLAPIEndpointOutput": "https://qlvwows7obep7ajsf7vukhszxm.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-nush2vewq5dnbcr56xsnz7qzta"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-10-14T14:19:11.740Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiailenhairstylist2"
+      }
+    },
+    "instagramapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway",
+      "output": {
+        "ApiName": "instagramapi",
+        "RootUrl": "https://a6qnt91ii3.execute-api.us-east-1.amazonaws.com/staging",
+        "ApiId": "a6qnt91ii3"
+      },
+      "lastPushTimeStamp": "2023-10-14T14:19:11.756Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/api/instagramapi-cloudformation-template.json",
+        "logicalId": "apiinstagramapi"
+      }
+    }
+  },
+  "auth": {
+    "ailenhairstylist2e93302e2": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-east-1_W9Pu8PucF",
+        "AppClientIDWeb": "79u7qc8jt7297f02qimpk3jsrn",
+        "AppClientID": "7qf0s1b303l4efe083hsuf0g4b",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:132478238461:userpool/us-east-1_W9Pu8PucF",
+        "UserPoolName": "ailenhairstylist2e93302e2_userpool_e93302e2",
+        "IdentityPoolId": "us-east-1:ded36356-da5d-499b-a107-4c0f11706094",
+        "IdentityPoolName": "ailenhairstylist2d62ed171_identitypool_d62ed171__staging"
+      },
+      "lastPushTimeStamp": "2023-10-14T14:19:14.358Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/auth/ailenhairstylist2e93302e2-cloudformation-template.json",
+        "logicalId": "authailenhairstylist2e93302e2"
+      },
+      "lastPushDirHash": "S3LnefhSMy1DtQ4+caQBqNZcYeQ="
+    }
+  },
+  "function": {
+    "ailenhairstylist22b6ec82d": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "ailenhairstylist2"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::132478238461:role/ailenhairstylist2LambdaRoleeae6358c-staging",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:132478238461:function:ailenhairstylist22b6ec82d-staging",
+        "Name": "ailenhairstylist22b6ec82d-staging",
+        "LambdaExecutionRole": "ailenhairstylist2LambdaRoleeae6358c-staging"
+      },
+      "lastPushTimeStamp": "2023-10-14T14:19:11.789Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/function/ailenhairstylist22b6ec82d-cloudformation-template.json",
+        "logicalId": "functionailenhairstylist22b6ec82d"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+        "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-387148514d78682f4164-build.zip"
+      }
+    },
+    "instagramfunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::132478238461:role/ailenhairstylist2LambdaRole4d62f948-staging",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:132478238461:function:instagramfunction-staging",
+        "Name": "instagramfunction-staging",
+        "LambdaExecutionRole": "ailenhairstylist2LambdaRole4d62f948-staging"
+      },
+      "lastPushTimeStamp": "2023-10-14T14:19:11.803Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/function/instagramfunction-cloudformation-template.json",
+        "logicalId": "functioninstagramfunction"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+        "s3Key": "amplify-builds/instagramfunction-76344377396d74645553-build.zip"
+      }
+    }
+  },
+  "storage": {
+    "s3ailenhairstylist2storagedb7b9f38": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "output": {
+        "BucketName": "ailen-hair-stylist-2-storage-db7b9f38120828-staging",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2023-10-14T14:19:11.817Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyc6f487cfd3d84-staging-120828-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3ailenhairstylist2storagedb7b9f38"
+      }
+    }
+  }
+}

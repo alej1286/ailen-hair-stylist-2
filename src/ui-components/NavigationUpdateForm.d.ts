@@ -5,59 +5,49 @@
  **************************************************************************/
 
 import * as React from "react";
-import {
-  GridProps,
-  SwitchFieldProps,
-  TextFieldProps,
-} from "@aws-amplify/ui-react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { Navigation } from "../models";
-export declare type ValidationResponse = {
-  hasError: boolean;
-  errorMessage?: string;
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
 };
-export declare type ValidationFunction<T> = (
-  value: T,
-  validationResponse: ValidationResponse,
-) => ValidationResponse | Promise<ValidationResponse>;
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type ValidationResponse = {
+    hasError: boolean;
+    errorMessage?: string;
+};
+export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type NavigationUpdateFormInputValues = {
-  name?: string;
-  href?: string;
-  current?: boolean;
+    name?: string;
+    href?: string;
+    current?: boolean;
 };
 export declare type NavigationUpdateFormValidationValues = {
-  name?: ValidationFunction<string>;
-  href?: ValidationFunction<string>;
-  current?: ValidationFunction<boolean>;
+    name?: ValidationFunction<string>;
+    href?: ValidationFunction<string>;
+    current?: ValidationFunction<boolean>;
 };
-export declare type PrimitiveOverrideProps<T> = Partial<T> &
-  React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavigationUpdateFormOverridesProps = {
-  NavigationUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-  name?: PrimitiveOverrideProps<TextFieldProps>;
-  href?: PrimitiveOverrideProps<TextFieldProps>;
-  current?: PrimitiveOverrideProps<SwitchFieldProps>;
+    NavigationUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    name?: PrimitiveOverrideProps<TextFieldProps>;
+    href?: PrimitiveOverrideProps<TextFieldProps>;
+    current?: PrimitiveOverrideProps<SwitchFieldProps>;
 } & EscapeHatchProps;
-export declare type NavigationUpdateFormProps = React.PropsWithChildren<
-  {
+export declare type NavigationUpdateFormProps = React.PropsWithChildren<{
     overrides?: NavigationUpdateFormOverridesProps | undefined | null;
-  } & {
+} & {
     id?: string;
     navigation?: Navigation;
-    onSubmit?: (
-      fields: NavigationUpdateFormInputValues,
-    ) => NavigationUpdateFormInputValues;
+    onSubmit?: (fields: NavigationUpdateFormInputValues) => NavigationUpdateFormInputValues;
     onSuccess?: (fields: NavigationUpdateFormInputValues) => void;
-    onError?: (
-      fields: NavigationUpdateFormInputValues,
-      errorMessage: string,
-    ) => void;
-    onChange?: (
-      fields: NavigationUpdateFormInputValues,
-    ) => NavigationUpdateFormInputValues;
+    onError?: (fields: NavigationUpdateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: NavigationUpdateFormInputValues) => NavigationUpdateFormInputValues;
     onValidate?: NavigationUpdateFormValidationValues;
-  } & React.CSSProperties
->;
-export default function NavigationUpdateForm(
-  props: NavigationUpdateFormProps,
-): React.ReactElement;
+} & React.CSSProperties>;
+export default function NavigationUpdateForm(props: NavigationUpdateFormProps): React.ReactElement;

@@ -7,10 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { Service } from "../models";
-import {
-  getOverrideProps,
-  useDataStoreDeleteAction,
-} from "@aws-amplify/ui-react/internal";
+import { getOverrideProps, useDataStoreDeleteAction } from "./utils";
 import { schema } from "../models/schema";
 import { Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function ServiceCard(props) {

@@ -7,10 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { Service } from "../models";
-import {
-  getOverrideProps,
-  useDataStoreBinding,
-} from "@aws-amplify/ui-react/internal";
+import { getOverrideProps, useDataStoreBinding } from "./utils";
 import ServiceCard from "./ServiceCard";
 import { Collection } from "@aws-amplify/ui-react";
 export default function ServiceCardCollection(props) {

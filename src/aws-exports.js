@@ -6,7 +6,7 @@ const awsmobile = {
     "aws_appsync_graphqlEndpoint": "https://qlvwows7obep7ajsf7vukhszxm.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-nush2vewq5dnbcr56xsnz7qzta",
+    "aws_appsync_apiKey": "da2-gqvvpelb3vejrm6jby5gd6rgcy",
     "aws_cloud_logic_custom": [
         {
             "name": "instagramapi",

@@ -11,7 +11,7 @@ import {
   getOverrideProps,
   useDataStoreUpdateAction,
   useStateMutationAction,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import { schema } from "../models/schema";
 import { useEffect } from "react";
 import {

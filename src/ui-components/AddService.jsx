@@ -10,7 +10,7 @@ import {
   getOverrideProps,
   useDataStoreCreateAction,
   useStateMutationAction,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import { Service } from "../models";
 import { schema } from "../models/schema";
 import {
