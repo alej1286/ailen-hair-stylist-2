@@ -19,10 +19,10 @@
     "secretsPathAmplifyAppId": {
       "Type": "String"
     },
-    "userid": {
+    "token": {
       "Type": "String"
     },
-    "token": {
+    "userid": {
       "Type": "String"
     }
   },
@@ -101,11 +101,11 @@
                 ]
               ]
             },
-            "userid": {
-              "Ref": "userid"
-            },
             "token": {
               "Ref": "token"
+            },
+            "userid": {
+              "Ref": "userid"
             }
           }
         },
