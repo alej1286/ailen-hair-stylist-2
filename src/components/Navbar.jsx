@@ -54,16 +54,15 @@ export default function Navbar(props) {
   const setRol = useRolReposStore((state) => state.setRol);
 
   useEffect(() => {
-    console.log("route:", route);
+    /* console.log("route:", route);
     console.log("rol:", rol);
+     */
     let groupname = null;
 
     const checkUser = async () => {
       const user2 = await Auth.currentAuthenticatedUser();
-      groupname =
-        user2.signInUserSession.accessToken.payload["cognito:groups"][0];
+      groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0];
       setGroup(groupname);
-      console.log("groupname:", groupname);
       setRol(groupname);
     };
 
@@ -74,6 +73,7 @@ export default function Navbar(props) {
 
   function logOut() {
     signOut();
+    setRol("");
     navigate("/login");
   }
   useEffect(() => {
