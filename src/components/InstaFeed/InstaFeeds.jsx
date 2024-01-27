@@ -13,6 +13,7 @@ const InstaFeeds = ({ ...props }) => {
   useEffect(() => {
     const abortController = new AbortController();
     try {
+      /* console.log(data); */
       setFeedsData(data.data);
     } catch (error) {
       console.log("error", error);
