@@ -218,8 +218,9 @@ function Home() {
             </p>
             <div className="mt-6">
               <a
-                href="#"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                href="https://calendar.app.google/5XBVozU5EGnRZpKR8"
+                target="_blank"
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" rel="noreferrer"
               >
                 Book Now
               </a>
