@@ -6,6 +6,7 @@ import { DataStore } from "aws-amplify";
 import { Service } from "../models";
 import { StorageImage } from "@aws-amplify/ui-react-storage";
 import "@aws-amplify/ui-react/styles.css";
+import { useRolReposStore } from './../store/RolRepo';
 
 import {
   Card,
@@ -59,6 +60,7 @@ function Services() {
   const [imagePath, setImagePath] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
+  const { rol } = useRolReposStore();
 
   const onSuccess = async ({ key }) => {
     //console.log(`Key: ${key}`);
@@ -104,6 +106,7 @@ function Services() {
   };
   useEffect(() => {
     checkUser();
+    console.log(this.rol);
   }, []);
   const [user, setUser] = useState({});
   const [update, setUpdate] = useState(false);
