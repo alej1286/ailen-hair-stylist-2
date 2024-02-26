@@ -309,7 +309,8 @@ function Services() {
                 ),
               },
               "Frame 418": {
-                display: user.username === "alej1286" ? "flex" : "none",
+                /* display: user.username === "alej1286" ? "flex" : "none", */
+                display: rol === "Administrator" ? "flex" : "none",
               },
               EditButton: {
                 onClick: () => {
