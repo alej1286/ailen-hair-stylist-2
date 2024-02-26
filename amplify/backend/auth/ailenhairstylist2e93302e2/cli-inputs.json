@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "ailenhairstylist2d62ed171_identitypool_d62ed171",
-    "allowUnauthenticatedIdentities": true,
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "ailenhe93302e2",
     "userPoolName": "ailenhairstylist2e93302e2_userpool_e93302e2",
     "autoVerifiedAttributes": [
@@ -25,12 +25,8 @@
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
     "userpoolClientLambdaRole": "ailenhe93302e2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "e93302e2",
@@ -58,12 +54,18 @@
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
-    "hostedUI": false,
+    "hostedUI": true,
     "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "thirdPartyAuth": false
+    "thirdPartyAuth": false,
+    "hostedUIDomainName": "eh77k25oh03h",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.ailenhairstylist.com/\"],\"LogoutURLs\":[\"https://www.ailenhairstylist.com/\"]}"
   }
 }
