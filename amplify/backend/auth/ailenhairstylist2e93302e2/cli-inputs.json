@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "ailenhairstylist2d62ed171_identitypool_d62ed171",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "ailenhe93302e2",
     "userPoolName": "ailenhairstylist2e93302e2_userpool_e93302e2",
     "autoVerifiedAttributes": [
