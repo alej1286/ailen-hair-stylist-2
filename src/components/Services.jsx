@@ -113,6 +113,7 @@ function Services() {
       const data = await Auth.currentUserPoolUser();
       const userInfo = { username: data.username, ...data.attributes };
       setUser(userInfo);
+      console.log(userInfo);//checking user
     } catch (err) {
       console.log("error: ", err);
     }
