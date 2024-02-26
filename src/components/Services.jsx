@@ -106,7 +106,7 @@ function Services() {
   };
   useEffect(() => {
     checkUser();
-    console.log(this.rol);
+    //console.log(rol);
   }, []);
   const [user, setUser] = useState({});
   const [update, setUpdate] = useState(false);
@@ -259,11 +259,21 @@ function Services() {
           setUpdate(true);
           setUpdateServices(item);}
       })}/> */}
-      {user.username === "alej1286" && isAddingService && (
+      {/* {user.username === "alej1286" && isAddingService && (
         <AddService overrides={addServiceOverrides} />
       )}
 
       {user.username === "alej1286" && isEditingService && (
+        <EditService
+          overrides={editServiceOverrides}
+          service={serviceToUpdate}
+        />
+      )} */}
+      {rol === "Administrator" && isAddingService && (
+        <AddService overrides={addServiceOverrides} />
+      )}
+
+      {rol === "Administrator" && isEditingService && (
         <EditService
           overrides={editServiceOverrides}
           service={serviceToUpdate}
