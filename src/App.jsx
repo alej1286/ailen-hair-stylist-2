@@ -25,6 +25,17 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
 
 function App({ signOut }) {
+  useEffect(() => {
+    setTimeout(() => {
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        if (link.href.match(/.*elfsight.*/)) {
+          link.style.display = 'none';
+        }
+      });
+    }, 5000); // 5000 milliseconds = 5 seconds
+  }, []);
+
   return (
     <View className="App bg-gray-200 min-h-screen">
       <Router>
@@ -40,6 +51,9 @@ function App({ signOut }) {
           <Route path="/login" element={<Login />} />
           <Route path="/authe" element={<Authe />} />
         </Routes>
+      {/* <Carousel businessKey={"ChIJQw1FNwa_2YgRt8tTstDFCFU"} apiKey={"AIzaSyC7jfaZnPg0AmaDBBCNOZjlS3morJYJGoI"}/> */}
+        
+        <div className="elfsight-app-4495d092-b640-4aa1-88ec-ab5fb0a2961a" data-elfsight-app-lazy></div>
         <Footer />
       </Router>
       {/* <Button onClick={signOut}>Sign Out</Button> */}
