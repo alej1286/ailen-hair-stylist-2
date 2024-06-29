@@ -14,9 +14,9 @@ const About = () => {
 
       <div className="w-full md:w-1/2 p-4 md:p-8 bg-gray-100 flex items-center justify-center">
         <div className="text-center md:text-left">
-          <h2 className="text-3xl md:text-5xl font-bold text-amber-800 mb-4">
-            About Us
-          </h2>
+          <h1 className="text-base text-indigo-600 font-semibold tracking-wide uppercase mb-5">
+          About Us
+          </h1>
           <p className="text-lg md:text-xl text-gray-700 mb-8">
             Our hair stylists have years of experience and a passion for
             creating beautiful hairstyles.

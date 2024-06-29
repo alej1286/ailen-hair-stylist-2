@@ -5,9 +5,9 @@ function Home() {
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+            <h1 className="text-base text-indigo-600 font-semibold tracking-wide uppercase mb-5">
               Welcome to our Hair Stylist Business
-            </h2>
+            </h1>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               We Make You Look Your Best
             </p>

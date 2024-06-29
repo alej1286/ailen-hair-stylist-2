@@ -51,9 +51,14 @@ function Gallery() {
     "https://ailenhairstylistweb.s3.amazonaws.com/young-man-1281282_1280.jpg",
   ];
   return (
-    <div className="container mt-24 mx-auto px-5 py-2 lg:px-32 lg:pt-24">
+    <div className="container mt-24 mx-auto px-5 py-2 lg:px-32 lg:pt-24 flex-col">
       <div className="-m-1 flex flex-wrap md:-m-2">
-        <div className="text-xl mb-5 font-semibold">Ailen Gallery </div>
+      <div className="justify-center">
+
+      <h1 className="text-xl font-semibold mb-5 flex-col">Ailen Gallery</h1>
+      </div>
+        {/* <div className="text-xl mb-5 font-semibold">Ailen Gallery </div> */}
+        <div className="-m-1 flex flex-wrap md:-m-2">
         {images.map((image, index) => (
           <div
             key={index}
@@ -65,6 +70,8 @@ function Gallery() {
             />
           </div>
         ))}
+        </div>
+        
       </div>
     </div>
   );

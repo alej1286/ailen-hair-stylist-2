@@ -69,6 +69,9 @@ function Contact({ signOut }) {
           </Flex>
           <Flex direction={"column"} justifyContent="space-between">
             <View style={{ marginBottom: tokens.space.small }}>
+            {/* <h1 className="text-base text-indigo-600 font-semibold tracking-wide uppercase mb-5">
+            Contact Us
+            </h1> */}
               <Heading color={tokens.colors.white} level={3}>
                 Contact Us
               </Heading>
@@ -335,7 +338,7 @@ function Contact({ signOut }) {
         </div>
        </div>
       </div> */}
-      <Button onClick={signOut}>Sign Out</Button>
+      {/* <Button onClick={signOut}>Sign Out</Button> */}
     </Flex>
   );
 }

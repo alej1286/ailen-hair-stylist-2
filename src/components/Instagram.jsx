@@ -21,6 +21,9 @@ class Instagram extends Component {
   render() {
     return (
       <div className="mt-24">
+        <h1 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+            Instagram Feed
+        </h1>
         <InstaFeeds limit={50} />
       </div>
     );
