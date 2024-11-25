@@ -85,6 +85,28 @@ const getFacebookToken = async () => {
   return Parameters[0].Value;
 };
 
+app.get("/refresh", async function (req, res) {
+  refreshToken(req, res);
+});
+
+const refreshToken = async (req, res) => {
+  const facebookToken = await getFacebookToken();
+  const r = await axios
+    .get(
+      `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${facebookToken}`
+    )
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => {
+      res.json({
+        err,
+        url: req.url,
+        event: req.apiGateway.event, // to view all event data
+      });
+    });
+};
+
 app.get("/items", async function (req, res) {
   const facebookToken = await getFacebookToken();
   const r = await axios
