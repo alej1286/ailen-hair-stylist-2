@@ -85,13 +85,29 @@ const getFacebookToken = async () => {
   return Parameters[0].Value;
 };
 
-app.get("/refresh", async function (req, res) {
-  refreshToken(req, res);
+app.get("/refreshtoken", async function (req, res) {
+  //await refreshToken(req, res);
+  const facebookToken2 = await getFacebookToken();
+  await axios
+    .get(
+      `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${facebookToken2}`
+    )
+    .then((response) => {
+      //res.json(response.data);
+      res.json(response.data);
+    })
+    .catch((err) => {
+      res.json({
+        err,
+        url: req.url,
+        event: req.apiGateway.event, // to view all event data
+      });
+    });
 });
-
+/* 
 const refreshToken = async (req, res) => {
   const facebookToken = await getFacebookToken();
-  const r = await axios
+  await axios
     .get(
       `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${facebookToken}`
     )
@@ -105,11 +121,11 @@ const refreshToken = async (req, res) => {
         event: req.apiGateway.event, // to view all event data
       });
     });
-};
+}; */
 
 app.get("/items", async function (req, res) {
   const facebookToken = await getFacebookToken();
-  const r = await axios
+  await axios
     .get(
       //`https://graph.instagram.com/${user_id}/media?fields=media_type,permalink,media_url&access_token=${facebookToken}`
       `https://graph.instagram.com/${user_id}/media?fields=media_type,username,caption,id,permalink,media_url,thumbnail_url,children{media_url,thumbnail_url}&access_token=${facebookToken}`
