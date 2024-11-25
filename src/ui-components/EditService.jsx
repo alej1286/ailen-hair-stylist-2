@@ -25,7 +25,7 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function EditService(props) {
-  const { on, service, overrides, ...rest } = props;
+  const { service, on, overrides, ...rest } = props;
   const [typeTextFieldValue, setTypeTextFieldValue] =
     useStateMutationAction("");
   const [priceTextFieldValue, setPriceTextFieldValue] =

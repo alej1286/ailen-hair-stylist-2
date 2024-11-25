@@ -87,6 +87,72 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_ailenhairstylist22b6ec82d_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ailenhairstylist22b6ec82d"
+        }
+      ]
+    },
+    "AMPLIFY_function_ailenhairstylist22b6ec82d_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ailenhairstylist22b6ec82d"
+        }
+      ]
+    },
+    "AMPLIFY_function_ailenhairstylist22b6ec82d_sesEmail": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ailenhairstylist22b6ec82d"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_token": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_instagramfunction_userid": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "instagramfunction"
+        }
+      ]
+    }
+  },
   "storage": {
     "s3ailenhairstylist2storagedb7b9f38": {
       "dependsOn": [],
