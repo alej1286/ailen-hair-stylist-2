@@ -85,43 +85,36 @@ const getFacebookToken = async () => {
   return Parameters[0].Value;
 };
 
-app.get("/refreshtoken", async function (req, res) {
-  //await refreshToken(req, res);
+app.refreshtoken = async function refreshtoken() {
   const facebookToken2 = await getFacebookToken();
   await axios
     .get(
       `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${facebookToken2}`
     )
-    .then((response) => {
-      //res.json(response.data);
-      res.json(response.data);
+    .then(async (response) => {
+      console.log("Token----Refreshed");
+      console.log(response.data);
+      var ssm = new aws.SSM();
+
+      var exp = response.data.expires_in.toString();
+
+      const updateParams = {
+        Name: "expires_in",
+        Value: exp,
+        Type: "String",
+        Overwrite: true, // Overwrite the existing parameter
+      };
+      try {
+        await ssm.putParameter(updateParams).promise();
+        console.log("Parameter updated successfully");
+      } catch (error) {
+        console.error("Error updating parameter:", error);
+      }
     })
     .catch((err) => {
-      res.json({
-        err,
-        url: req.url,
-        event: req.apiGateway.event, // to view all event data
-      });
+      console.log(err);
     });
-});
-/* 
-const refreshToken = async (req, res) => {
-  const facebookToken = await getFacebookToken();
-  await axios
-    .get(
-      `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${facebookToken}`
-    )
-    .then((response) => {
-      res.json(response.data);
-    })
-    .catch((err) => {
-      res.json({
-        err,
-        url: req.url,
-        event: req.apiGateway.event, // to view all event data
-      });
-    });
-}; */
+};
 
 app.get("/items", async function (req, res) {
   const facebookToken = await getFacebookToken();
