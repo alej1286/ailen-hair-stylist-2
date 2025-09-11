@@ -125,6 +125,7 @@ app.get("/items", async function (req, res) {
     )
     .then((response) => {
       res.json(response.data);
+      console.log("response:", response);
     })
     .catch((err) => {
       res.json({
@@ -132,6 +133,7 @@ app.get("/items", async function (req, res) {
         url: req.url,
         event: req.apiGateway.event, // to view all event data
       });
+      console.log("err:", err);
     });
 });
 
