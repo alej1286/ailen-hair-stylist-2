@@ -20,10 +20,10 @@
         },
         "instagramfunction": {
           "secretsPathAmplifyAppId": "daondcek2caec",
-          "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/instagramfunction-7430394632674868376e-build.zip",
           "token": "IGQWRQc2pFYzhMcEkyYmp5N0tPRFB5b0ZAHNXhiM2p5LWczWnBHdkJsaTJOMUVuaFJuNmhhcVdNcUxHRWRJQUdTbUs3b19yLVoxaTE0VG9lN2c3LVJseUl2cnRFcDluVGQ0c2d5bUI2NU96aGI0NzJqbVVodk5ScUUZD",
-          "userid": "8424517864323494"
+          "userid": "8424517864323494",
+          "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
+          "s3Key": "amplify-builds/instagramfunction-7430394632674868376e-build.zip"
         }
       },
       "auth": {
