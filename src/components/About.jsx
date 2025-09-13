@@ -1,6 +1,11 @@
+import React from 'react';
+import SEO from './SEO';
+
 const About = () => {
   return (
-    <div
+    <>
+      <SEO page="about" />
+      <div
       id="about"
       className="mt-24 flex flex-col md:flex-row w-full h-screen bg-amber-800"
     >
@@ -28,7 +33,8 @@ const About = () => {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

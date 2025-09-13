@@ -16,6 +16,7 @@ import {
 import { BsTwitter, BsJournal, BsYoutube } from "react-icons/bs";
 import { API } from "aws-amplify";
 import { createCandidate } from "../graphql/mutations";
+import SEO from './SEO';
 //import { InstagramEmbed } from 'react-social-media-embed';
 
 const IconEmail = () => {
@@ -47,7 +48,9 @@ function Contact({ signOut }) {
     });
   };
   return (
-    <Flex
+    <>
+      <SEO page="contact" />
+      <Flex
       justifyContent="center"
       alignItems="center"
       height="100vh"
@@ -339,7 +342,8 @@ function Contact({ signOut }) {
        </div>
       </div> */}
       {/* <Button onClick={signOut}>Sign Out</Button> */}
-    </Flex>
+      </Flex>
+    </>
   );
 }
 

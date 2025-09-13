@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import SEO from './SEO';
+
 function Home() {
   return (
-    <div className="bg-gray-100 mt-24">
+    <>
+      <SEO page="home" />
+      <div className="bg-gray-100 mt-24">
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
@@ -228,7 +233,8 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 
