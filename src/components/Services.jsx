@@ -18,7 +18,7 @@ import {
 } from "../ui-components";
 import "@aws-amplify/ui-react/styles.css";
 
-/* Funciones de utilidad para manejo de Storage - mantenidas para referencia futura
+/* Storage utility functions - kept for future reference
 try {
   const src = await Storage.get(key, { level, track, identityId });
   logger.debug('Storage image get', src);
@@ -46,11 +46,11 @@ function getFileProperties(key) {
 } */
 
 /**
- * Componente Services - Gestión de servicios de peluquería
- * Optimizado para SEO, responsive design y mejores prácticas
+ * Services Component - Hair salon services management
+ * Optimized for SEO, responsive design and best practices
  */
 function Services() {
-  // Estados del componente - optimizados para performance
+  // Component state - optimized for performance
   const [isAddingService, setIsAddingService] = useState(false);
   const [isEditingService, setIsEditingService] = useState(false);
   const [serviceToUpdate, setServiceToUpdate] = useState(null);
@@ -63,7 +63,7 @@ function Services() {
   const { rol } = useRolReposStore();
   const isAdmin = useMemo(() => rol === "Administrator", [rol]);
 
-  // Función optimizada para actualizar servicios
+  // Optimized function to update services
   const updatedService = useCallback(
     async (imagePath) => {
       if (!serviceToUpdate) return;
@@ -80,7 +80,7 @@ function Services() {
         setServiceToUpdate(updated);
         setIsEditingService(false);
       } catch (err) {
-        setError("Error al actualizar el servicio");
+        setError("Error updating service");
         console.error("Update error:", err);
       } finally {
         setLoading(false);
@@ -89,7 +89,7 @@ function Services() {
     [serviceToUpdate]
   );
 
-  // Callback optimizado para manejo de subida de imágenes
+  // Optimized callback for image upload handling
   const onSuccess = useCallback(
     async ({ key }) => {
       try {
@@ -98,7 +98,7 @@ function Services() {
 
         //console.log(`Key: ${key}`);
 
-        /* Lógica de actualización de servicios - comentarios mantenidos para referencia
+        /* Service update logic - comments kept for reference
       const currentService = {...serviceToUpdate};
       currentService.imagePath = result;
       currentService.imagePath = `https://ailen-hair-stylist-2-storage-db7b9f38120828-staging.s3.amazonaws.com/public/${key}`;
@@ -119,7 +119,7 @@ function Services() {
         //console.log("imageSrc:", imageSrc);
         //console.log("src:",src);
       } catch (err) {
-        setError("Error al subir la imagen");
+        setError("Error uploading image");
         console.error("Upload error:", err);
       } finally {
         setLoading(false);
@@ -128,10 +128,10 @@ function Services() {
     [isEditingService, isAddingService, updatedService]
   );
 
-  // Función para guardar nuevo servicio
+  // Function to save new service
   const saveNewService = useCallback(async () => {
     if (!imagePath || !price || !type) {
-      setError("Por favor completa todos los campos");
+      setError("Please complete all fields");
       return;
     }
 
@@ -139,21 +139,21 @@ function Services() {
       setLoading(true);
       await DataStore.save(new Service({ imagePath, price, type }));
 
-      // Limpiar formulario
+      // Clear form
       setImagePath("");
       setPrice("");
       setType("");
       setIsAddingService(false);
       setError(null);
     } catch (err) {
-      setError("Error al guardar el servicio");
+      setError("Error saving service");
       console.error("Save error:", err);
     } finally {
       setLoading(false);
     }
   }, [imagePath, price, type]);
 
-  // Estados legacy mantenidos como comentario para referencia
+  // Legacy states kept as comments for reference
   /* const [user, setUser] = useState({});
   const [update, setUpdate] = useState(false);
   const [updateServices, setUpdateServices] = useState();
@@ -168,7 +168,7 @@ function Services() {
     }
   } */
 
-  // Componentes reutilizables del StorageManager - optimizados para performance
+  // Reusable StorageManager components - optimized for performance
   const storageManagerComponents = useMemo(
     () => ({
       Container({ children }) {
@@ -196,8 +196,8 @@ function Services() {
           >
             {/* <Text>Drop files here</Text>
           <Divider size="small" label="or" maxWidth="10rem" /> */}
-            <Text className="text-gray-600 mb-2">Arrastra tu imagen aquí</Text>
-            <Divider size="small" label="o" className="my-2" />
+            <Text className="text-gray-600 mb-2">Drag your image here</Text>
+            <Divider size="small" label="or" className="my-2" />
             {children}
           </Flex>
         );
@@ -209,7 +209,7 @@ function Services() {
             onClick={onClick}
             className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            📁 Seleccionar Imagen
+            📁 Select Image
           </Button>
         );
       },
@@ -220,7 +220,7 @@ function Services() {
     []
   );
 
-  // Configuración optimizada para agregar servicios
+  // Optimized configuration for adding services
   const addServiceOverrides = useMemo(
     () => ({
       Vector: {
@@ -240,14 +240,14 @@ function Services() {
       PriceTextField: {
         onChange: (e) => setPrice(e.target.value),
         value: price,
-        placeholder: "Ej: $50.000",
+        placeholder: "e.g. $50",
         className:
           "border-2 border-gray-300 focus:border-blue-500 rounded-lg transition-colors duration-300",
       },
       TypeTextField: {
         onChange: (e) => setType(e.target.value),
         value: type,
-        placeholder: "Ej: Corte y Peinado",
+        placeholder: "e.g. Cut & Style",
         className:
           "border-2 border-gray-300 focus:border-blue-500 rounded-lg transition-colors duration-300",
       },
@@ -265,7 +265,7 @@ function Services() {
     [price, type, onSuccess, saveNewService, loading, storageManagerComponents]
   );
 
-  // Configuración optimizada para editar servicios
+  // Optimized configuration for editing services
   const editServiceOverrides = useMemo(
     () => ({
       Vector: {
@@ -290,7 +290,7 @@ function Services() {
     [onSuccess, storageManagerComponents]
   );
 
-  // Configuración optimizada para las tarjetas de servicios
+  // Optimized configuration for service cards
   const serviceCardOverrides = useCallback(
     ({ item }) => ({
       overrides: {
@@ -303,8 +303,8 @@ function Services() {
               className="relative overflow-hidden rounded-lg group"
             >
               <StorageImage
-                alt={`Servicio de peluquería: ${
-                  item.type || "Imagen del servicio"
+                alt={`Hair salon service: ${
+                  item.type || "Service image"
                 }`}
                 imgKey={item.imagePath}
                 accessLevel="public"
@@ -339,24 +339,23 @@ function Services() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section - Optimizado para SEO */}
+        {/* Header Section - SEO Optimized */}
         <header className="text-center mb-12">
           <Heading
             level={1}
             className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
           >
-            Nuestros Servicios de Peluquería
+            Our Hair Salon Services
           </Heading>
           <Text className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Descubre nuestra amplia gama de servicios profesionales de
-            peluquería y estilismo. Cada servicio está diseñado para realzar tu
-            belleza natural.
+            Discover our wide range of professional hair styling and beauty services.
+            Each service is designed to enhance your natural beauty and boost your confidence.
           </Text>
 
-          {/* Breadcrumb para SEO */}
+          {/* Breadcrumb for SEO */}
           <nav aria-label="Breadcrumb" className="mt-4">
             <Text className="text-sm text-gray-500">
-              Inicio → Servicios → Peluquería
+              Home → Services → Hair Salon
             </Text>
           </nav>
         </header>
@@ -377,17 +376,17 @@ function Services() {
                     level={3}
                     className="text-xl font-semibold text-gray-800 mb-2"
                   >
-                    Panel de Administración
+                    Admin Panel
                   </Heading>
                   <Text className="text-gray-600">
-                    Gestiona los servicios de tu salón
+                    Manage your salon services
                   </Text>
                 </div>
                 <Button
                   onClick={() => setIsAddingService(true)}
                   className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
                 >
-                  ✨ Agregar Nuevo Servicio
+                  ✨ Add New Service
                 </Button>
               </Flex>
 
@@ -400,7 +399,7 @@ function Services() {
           </section>
         )}
 
-        {/* Modal Components con Suspense para mejor performance */}
+        {/* Modal Components with Suspense for better performance */}
         <React.Suspense
           fallback={
             <div className="flex justify-center items-center p-8">
@@ -408,7 +407,7 @@ function Services() {
             </div>
           }
         >
-          {/* Comentarios de funcionalidad legacy mantenidos
+          {/* Legacy functionality comments maintained
           {user.username === 'alej1286' && update === false ? <div className="w-1/5"><PricesForm /></div> : user.username}  
           {user.username === 'alej1286' && update === true ? <div className="w-1/5"><PricesFormUpdate services={updateServices} /></div> : user.username} 
           <PricesCollection overrideItems={({ item }) => ({
@@ -417,7 +416,7 @@ function Services() {
               setUpdateServices(item);}
           })}/> */}
 
-          {/* Modales de administración con comentarios legacy
+          {/* Admin modals with legacy comments
           {user.username === "alej1286" && isAddingService && (
             <AddService overrides={addServiceOverrides} />
           )}
@@ -445,7 +444,7 @@ function Services() {
           )}
         </React.Suspense>
 
-        {/* Services Grid - Optimizado para SEO y responsive */}
+        {/* Services Grid - SEO and responsive optimized */}
         <section>
           <ServiceCardCollection
             isPaginated
@@ -455,19 +454,19 @@ function Services() {
           />
         </section>
 
-        {/* Schema.org structured data para SEO */}
+        {/* Schema.org structured data for SEO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BeautySalon",
             name: "Ailen Hair Stylist",
-            description: "Servicios profesionales de peluquería y estilismo",
+            description: "Professional hair styling and beauty services",
             url: typeof window !== "undefined" ? window.location.href : "",
             serviceType: "Hair Styling Services",
-            areaServed: "Local Area",
+            areaServed: "United States",
             hasOfferCatalog: {
               "@type": "OfferCatalog",
-              name: "Servicios de Peluquería",
+              name: "Hair Salon Services",
               itemListElement: [],
             },
           })}
@@ -477,7 +476,7 @@ function Services() {
   );
 }
 
-// Exportación con displayName para mejor debugging
+// Export with displayName for better debugging
 Services.displayName = "Services";
 
 export default Services;
