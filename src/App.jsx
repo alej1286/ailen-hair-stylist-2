@@ -24,6 +24,7 @@ import {
 import Instagram from "./components/Instagram";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
+import Sitemap from "./components/Sitemap";
 
 function App({ signOut }) {
   useEffect(() => {
@@ -52,6 +53,7 @@ function App({ signOut }) {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
+            <Route path="/sitemap.xml" element={<Sitemap />} />
           </Routes>
         {/* <Carousel businessKey={"ChIJQw1FNwa_-------------"} apiKey={"AIzaSyC7j----------------------"}/> */}
           
