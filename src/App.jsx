@@ -25,26 +25,15 @@ import Instagram from "./components/Instagram";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
 import Sitemap from "./components/Sitemap";
-import GoogleAnalyticsWrapper from "./components/GoogleAnalyticsWrapper";
+import ElfsightWidget from "./components/ElfsightWidget";
 
 function App({ signOut }) {
-  useEffect(() => {
-    setTimeout(() => {
-      const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        if (link.href.match(/.*elfsight.*/)) {
-          link.style.display = 'none';
-        }
-      });
-    }, 5000); // 5000 milliseconds = 5 seconds
-  }, []);
 
   return (
     <HelmetProvider>
       <View className="App bg-gray-200 min-h-screen">
         <Router>
-          <GoogleAnalyticsWrapper>
-            <Navbar />
+          <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -59,9 +48,8 @@ function App({ signOut }) {
           </Routes>
         {/* <Carousel businessKey={"ChIJQw1FNwa_-------------"} apiKey={"AIzaSyC7j----------------------"}/> */}
           
-          <div className="elfsight-app-4495d092-b640-4aa1-88ec-ab5fb0a2961a" data-elfsight-app-lazy></div>
+          <ElfsightWidget />
           <Footer />
-          </GoogleAnalyticsWrapper>
         </Router>
         {/* <Button onClick={signOut}>Sign Out</Button> */}
       </View>

@@ -51,22 +51,23 @@ export default function Navbar(props) {
   const setRol = useRolReposStore((state) => state.setRol)
   
   useEffect(() => {
-    console.log("route:",route)
-    console.log("rol:",rol)
     let groupname = null;
     
-    
-      const checkUser = async() => {
+    const checkUser = async() => {
+      try {
         const user2 = await Auth.currentAuthenticatedUser();
         groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0]
         setGroup(groupname);
-        console.log("groupname:",groupname)
         setRol(groupname)
+      } catch (error) {
+        // User not authenticated
+        setRol("");
       }
+    }
     
-      if(route === 'authenticated'){
-        checkUser()
-      }
+    if(route === 'authenticated'){
+      checkUser()
+    }
   
   }, [route]);
 
