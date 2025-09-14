@@ -25,6 +25,7 @@ import Instagram from "./components/Instagram";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
 import Sitemap from "./components/Sitemap";
+import GoogleAnalyticsWrapper from "./components/GoogleAnalyticsWrapper";
 
 function App({ signOut }) {
   useEffect(() => {
@@ -42,7 +43,8 @@ function App({ signOut }) {
     <HelmetProvider>
       <View className="App bg-gray-200 min-h-screen">
         <Router>
-          <Navbar />
+          <GoogleAnalyticsWrapper>
+            <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -59,6 +61,7 @@ function App({ signOut }) {
           
           <div className="elfsight-app-4495d092-b640-4aa1-88ec-ab5fb0a2961a" data-elfsight-app-lazy></div>
           <Footer />
+          </GoogleAnalyticsWrapper>
         </Router>
         {/* <Button onClick={signOut}>Sign Out</Button> */}
       </View>
