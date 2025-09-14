@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   ButtonGroup,
   Button,
@@ -13,11 +14,10 @@ import {
   Icon,
   Link,
 } from "@aws-amplify/ui-react";
-import { BsTwitter, BsJournal, BsYoutube } from "react-icons/bs";
+import { BsTwitter, BsJournal, BsYoutube, BsCheckCircle, BsExclamationTriangle } from "react-icons/bs";
 import { API } from "aws-amplify";
 import { createCandidate } from "../graphql/mutations";
 import SEO from './SEO';
-//import { InstagramEmbed } from 'react-social-media-embed';
 
 const IconEmail = () => {
   return (
@@ -29,23 +29,97 @@ const IconEmail = () => {
 };
 function Contact({ signOut }) {
   const { tokens } = useTheme();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
+  const validateField = (name, value) => {
+    const newErrors = { ...errors };
+    
+    switch (name) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Name is required';
+        } else if (value.trim().length < 2) {
+          newErrors.name = 'Name must be at least 2 characters';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim()) {
+          newErrors.email = 'Email is required';
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = 'Please enter a valid email address';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case 'message':
+        if (!value.trim()) {
+          newErrors.message = 'Message is required';
+        } else if (value.trim().length < 10) {
+          newErrors.message = 'Message must be at least 10 characters';
+        } else {
+          delete newErrors.message;
+        }
+        break;
+      default:
+        break;
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    validateField(name, value);
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const message = e.target.message.value;
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    await API.graphql({
-      query: createCandidate,
-      variables: {
-        input: {
-          name,
-          email,
-          message,
+    // Validate all fields
+    const isNameValid = validateField('name', formData.name);
+    const isEmailValid = validateField('email', formData.email);
+    const isMessageValid = validateField('message', formData.message);
+
+    if (!isNameValid || !isEmailValid || !isMessageValid) {
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await API.graphql({
+        query: createCandidate,
+        variables: {
+          input: {
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            message: formData.message.trim(),
+          },
         },
-      },
-    });
+      });
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setErrors({});
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <>
@@ -146,36 +220,101 @@ function Contact({ signOut }) {
             borderRadius={tokens.radii.medium}
           >
             <Flex as="form" direction={"column"} onSubmit={handleFormSubmit}>
+              {submitStatus === 'success' && (
+                <View
+                  backgroundColor={tokens.colors.green[10]}
+                  borderColor={tokens.colors.green[60]}
+                  borderWidth={tokens.borderWidths.small}
+                  borderRadius={tokens.radii.small}
+                  padding={tokens.space.medium}
+                  style={{ marginBottom: tokens.space.medium }}
+                >
+                  <Flex alignItems="center" gap={tokens.space.xs}>
+                    <Icon as={BsCheckCircle} color={tokens.colors.green[80]} />
+                    <Text color={tokens.colors.green[90]}>Message sent successfully! We'll get back to you soon.</Text>
+                    <Button
+                      size="small"
+                      variation="link"
+                      onClick={() => setSubmitStatus(null)}
+                      style={{ marginLeft: 'auto' }}
+                    >
+                      ×
+                    </Button>
+                  </Flex>
+                </View>
+              )}
+              
+              {submitStatus === 'error' && (
+                <View
+                  backgroundColor={tokens.colors.red[10]}
+                  borderColor={tokens.colors.red[60]}
+                  borderWidth={tokens.borderWidths.small}
+                  borderRadius={tokens.radii.small}
+                  padding={tokens.space.medium}
+                  style={{ marginBottom: tokens.space.medium }}
+                >
+                  <Flex alignItems="center" gap={tokens.space.xs}>
+                    <Icon as={BsExclamationTriangle} color={tokens.colors.red[80]} />
+                    <Text color={tokens.colors.red[90]}>Failed to send message. Please try again.</Text>
+                    <Button
+                      size="small"
+                      variation="link"
+                      onClick={() => setSubmitStatus(null)}
+                      style={{ marginLeft: 'auto' }}
+                    >
+                      ×
+                    </Button>
+                  </Flex>
+                </View>
+              )}
+
               <TextField
-                required
                 label="Your Name"
                 name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 placeholder="Your name"
+                hasError={!!errors.name}
+                errorMessage={errors.name}
                 innerStartComponent={
                   <FieldGroupIcon ariaLabel=""></FieldGroupIcon>
                 }
               />
+              
               <TextField
                 label="Email"
                 name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 placeholder="you@email.com"
-                type={"email"}
-                required
+                type="email"
+                hasError={!!errors.email}
+                errorMessage={errors.email}
                 innerStartComponent={
                   <FieldGroupIcon ariaLabel="">
                     <IconEmail />
                   </FieldGroupIcon>
                 }
               />
+              
               <TextAreaField
-                required
                 label="Message"
                 name="message"
-                placeholder="Enter your message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Enter your message (minimum 10 characters)"
+                hasError={!!errors.message}
+                errorMessage={errors.message}
+                rows={4}
               />
+              
               <View style={{ marginTop: tokens.space.medium }}>
-                <Button type="submit" variation="primary">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  variation="primary"
+                  isDisabled={isSubmitting || Object.keys(errors).length > 0}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </View>
             </Flex>
