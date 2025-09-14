@@ -199,3 +199,84 @@ export const onDeleteCandidate = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAppointment = /* GraphQL */ `
+  subscription OnCreateAppointment(
+    $filter: ModelSubscriptionAppointmentFilterInput
+  ) {
+    onCreateAppointment(filter: $filter) {
+      id
+      serviceId
+      serviceName
+      customerName
+      customerEmail
+      customerPhone
+      appointmentDate
+      appointmentTime
+      duration
+      price
+      status
+      notes
+      googleCalendarEventId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateAppointment = /* GraphQL */ `
+  subscription OnUpdateAppointment(
+    $filter: ModelSubscriptionAppointmentFilterInput
+  ) {
+    onUpdateAppointment(filter: $filter) {
+      id
+      serviceId
+      serviceName
+      customerName
+      customerEmail
+      customerPhone
+      appointmentDate
+      appointmentTime
+      duration
+      price
+      status
+      notes
+      googleCalendarEventId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteAppointment = /* GraphQL */ `
+  subscription OnDeleteAppointment(
+    $filter: ModelSubscriptionAppointmentFilterInput
+  ) {
+    onDeleteAppointment(filter: $filter) {
+      id
+      serviceId
+      serviceName
+      customerName
+      customerEmail
+      customerPhone
+      appointmentDate
+      appointmentTime
+      duration
+      price
+      status
+      notes
+      googleCalendarEventId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;

@@ -9,7 +9,10 @@ async function ServicesApi() {
 
     if (!allServices) return null;
 
-    return allServices.reverse();
+    // Filter out deleted services
+    const activeServices = allServices.filter(service => !service._deleted);
+
+    return activeServices.reverse();
   } catch (res) {
     const { errors } = res;
     console.error(errors);

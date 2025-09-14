@@ -5,6 +5,8 @@
  **************************************************************************/
 
 export { default as AddService } from "./AddService";
+export { default as AppointmentCreateForm } from "./AppointmentCreateForm";
+export { default as AppointmentUpdateForm } from "./AppointmentUpdateForm";
 export { default as CandidateCreateForm } from "./CandidateCreateForm";
 export { default as CandidateUpdateForm } from "./CandidateUpdateForm";
 export { default as EditService } from "./EditService";

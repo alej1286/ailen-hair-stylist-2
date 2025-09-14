@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import SEO from './SEO';
+import BookingWidget from './BookingWidget';
 
 function Home() {
+  const [isBookingWidgetOpen, setIsBookingWidgetOpen] = useState(false);
+
   return (
     <>
       <SEO page="home" />
@@ -221,19 +224,32 @@ function Home() {
               Contact us to schedule your appointment and experience the best
               hair care services in town.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Google Calendar booking - commented for future use
               <a
                 href="https://calendar.app.google/5XBVozU5EGnRZpKR8"
                 target="_blank"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" rel="noreferrer"
               >
-                Book Now
+                Book Now (Google)
               </a>
+              */}
+              <button
+                onClick={() => setIsBookingWidgetOpen(true)}
+                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              >
+                Book Appointment
+              </button>
             </div>
           </div>
         </div>
       </div>
       </div>
+      
+      <BookingWidget 
+        isOpen={isBookingWidgetOpen} 
+        onClose={() => setIsBookingWidgetOpen(false)} 
+      />
     </>
   );
 }

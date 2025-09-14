@@ -283,3 +283,102 @@ export const syncCandidates = /* GraphQL */ `
     }
   }
 `;
+export const getAppointment = /* GraphQL */ `
+  query GetAppointment($id: ID!) {
+    getAppointment(id: $id) {
+      id
+      serviceId
+      serviceName
+      customerName
+      customerEmail
+      customerPhone
+      appointmentDate
+      appointmentTime
+      duration
+      price
+      status
+      notes
+      googleCalendarEventId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const listAppointments = /* GraphQL */ `
+  query ListAppointments(
+    $filter: ModelAppointmentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAppointments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        serviceId
+        serviceName
+        customerName
+        customerEmail
+        customerPhone
+        appointmentDate
+        appointmentTime
+        duration
+        price
+        status
+        notes
+        googleCalendarEventId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;
+export const syncAppointments = /* GraphQL */ `
+  query SyncAppointments(
+    $filter: ModelAppointmentFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncAppointments(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        serviceId
+        serviceName
+        customerName
+        customerEmail
+        customerPhone
+        appointmentDate
+        appointmentTime
+        duration
+        price
+        status
+        notes
+        googleCalendarEventId
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+  }
+`;

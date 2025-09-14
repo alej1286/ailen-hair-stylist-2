@@ -129,3 +129,53 @@ export declare type Candidate = LazyLoading extends LazyLoadingDisabled ? EagerC
 export declare const Candidate: (new (init: ModelInit<Candidate>) => Candidate) & {
   copyOf(source: Candidate, mutator: (draft: MutableModel<Candidate>) => MutableModel<Candidate> | void): Candidate;
 }
+
+type EagerAppointment = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Appointment, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly serviceId: string;
+  readonly serviceName: string;
+  readonly customerName: string;
+  readonly customerEmail: string;
+  readonly customerPhone: string;
+  readonly appointmentDate: string;
+  readonly appointmentTime: string;
+  readonly duration: number;
+  readonly price: number;
+  readonly status: string;
+  readonly notes?: string | null;
+  readonly googleCalendarEventId?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyAppointment = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Appointment, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly serviceId: string;
+  readonly serviceName: string;
+  readonly customerName: string;
+  readonly customerEmail: string;
+  readonly customerPhone: string;
+  readonly appointmentDate: string;
+  readonly appointmentTime: string;
+  readonly duration: number;
+  readonly price: number;
+  readonly status: string;
+  readonly notes?: string | null;
+  readonly googleCalendarEventId?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Appointment = LazyLoading extends LazyLoadingDisabled ? EagerAppointment : LazyAppointment
+
+export declare const Appointment: (new (init: ModelInit<Appointment>) => Appointment) & {
+  copyOf(source: Appointment, mutator: (draft: MutableModel<Appointment>) => MutableModel<Appointment> | void): Appointment;
+}

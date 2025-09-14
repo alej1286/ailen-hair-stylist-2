@@ -23,4 +23,20 @@ type Candidate @model @auth(rules: [{allow: public, operations: [create]}]) {
   email: AWSEmail!
   message: String!
 }
+
+type Appointment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  serviceId: ID!
+  serviceName: String!
+  customerName: String!
+  customerEmail: AWSEmail!
+  customerPhone: String!
+  appointmentDate: AWSDate!
+  appointmentTime: String!
+  duration: Int!
+  price: Float!
+  status: String! # pending, confirmed, cancelled, completed
+  notes: String
+  googleCalendarEventId: String
+}
  
