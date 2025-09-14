@@ -447,13 +447,12 @@ function Services() {
           )}
         </React.Suspense>
 
-        {/* Services Grid - SEO and responsive optimized */}
+        {/* Services Grid */}
         <section>
           <ServiceCardCollection
             isPaginated
             itemsPerPage={6}
             overrideItems={serviceCardOverrides}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           />
         </section>
 
