@@ -14,6 +14,7 @@ import { Amplify, DataStore, Logger } from "aws-amplify";
 import config from "./aws-exports";
 import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import { registerSW } from "./utils/pwaHelpers";
 
 // Suppress DataStore warnings by setting logger level
 Logger.LOG_LEVEL = 'ERROR';
@@ -38,6 +39,11 @@ console.warn = (...args) => {
   }
   originalWarn.apply(console, args);
 };
+
+// Register Service Worker for PWA
+window.addEventListener('load', () => {
+  registerSW();
+});
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));

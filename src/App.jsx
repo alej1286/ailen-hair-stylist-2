@@ -26,6 +26,8 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
 import Sitemap from "./components/Sitemap";
 import ElfsightWidget from "./components/ElfsightWidget";
+import InstallPrompt from "./components/InstallPrompt";
+import PWAStatus from "./components/PWAStatus";
 
 function App({ signOut }) {
 
@@ -50,6 +52,8 @@ function App({ signOut }) {
           
           <ElfsightWidget />
           <Footer />
+          <InstallPrompt />
+          <PWAStatus />
         </Router>
         {/* <Button onClick={signOut}>Sign Out</Button> */}
       </View>
