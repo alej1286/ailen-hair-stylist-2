@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { OptimizedImage, ImagePlaceholder } from './ImageOptimization';
+
 function Gallery() {
   const images = [
     "https://ailenhairstylistweb.s3.amazonaws.com/african-american-1180847_1280.jpg",
@@ -64,9 +66,15 @@ function Gallery() {
             key={index}
             className="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-1 md:p-2"
           >
-            <img
-              className="block mx-auto h-full object-cover object-center rounded-lg shadow-md"
+            <OptimizedImage
               src={image}
+              alt={`Galería de peinados ${index + 1}`}
+              className="block mx-auto h-full object-cover object-center rounded-lg shadow-md"
+              width="100%"
+              height="300"
+              effect="blur"
+              placeholder={<ImagePlaceholder height="300px" />}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           </div>
         ))}
