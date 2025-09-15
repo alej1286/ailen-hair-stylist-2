@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const PWAStatus = () => {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [swRegistered, setSwRegistered] = useState(false);
+  const [, setIsOnline] = useState(navigator.onLine);
+  const [, setSwRegistered] = useState(false);
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -24,17 +24,8 @@ const PWAStatus = () => {
     };
   }, []);
 
-  // Only show in development mode
-  if (process.env.NODE_ENV === 'production') {
-    return null;
-  }
-
-  return (
-    <div className="fixed top-4 right-4 bg-gray-800 text-white p-2 rounded text-xs z-50">
-      <div>Status: {isOnline ? '🟢 Online' : '🔴 Offline'}</div>
-      <div>SW: {swRegistered ? '✅ Registered' : '❌ Not Registered'}</div>
-    </div>
-  );
+  // Hidden in all environments to avoid UI clutter
+  return null;
 };
 
 export default PWAStatus;

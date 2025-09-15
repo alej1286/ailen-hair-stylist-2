@@ -23,6 +23,11 @@ self.addEventListener('install', (event) => {
 
 // Fetch event
 self.addEventListener('fetch', (event) => {
+  // Skip chrome-extension and other non-http(s) requests
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -42,7 +47,13 @@ self.addEventListener('fetch', (event) => {
 
             caches.open(DYNAMIC_CACHE)
               .then((cache) => {
-                cache.put(event.request, responseToCache);
+                // Only cache http(s) requests
+                if (event.request.url.startsWith('http')) {
+                  cache.put(event.request, responseToCache);
+                }
+              })
+              .catch((error) => {
+                console.log('Cache put failed:', error);
               });
 
             return fetchResponse;

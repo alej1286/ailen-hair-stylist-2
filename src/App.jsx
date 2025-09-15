@@ -26,8 +26,11 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
 import Sitemap from "./components/Sitemap";
 import ElfsightWidget from "./components/ElfsightWidget";
+
+
+import WhatsAppChat from "./components/WhatsAppChat";
+import AdminPanel from "./components/AdminPanel";
 import InstallPrompt from "./components/InstallPrompt";
-import PWAStatus from "./components/PWAStatus";
 
 function App({ signOut }) {
 
@@ -46,14 +49,16 @@ function App({ signOut }) {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
+            <Route path="/admin" element={<AdminPanel />} />
             <Route path="/sitemap.xml" element={<Sitemap />} />
           </Routes>
         {/* <Carousel businessKey={"ChIJQw1FNwa_-------------"} apiKey={"AIzaSyC7j----------------------"}/> */}
           
           <ElfsightWidget />
           <Footer />
+
+          <WhatsAppChat />
           <InstallPrompt />
-          <PWAStatus />
         </Router>
         {/* <Button onClick={signOut}>Sign Out</Button> */}
       </View>

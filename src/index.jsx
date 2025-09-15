@@ -15,6 +15,7 @@ import config from "./aws-exports";
 import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { registerSW } from "./utils/pwaHelpers";
+import "./utils/errorSuppression";
 
 // Suppress DataStore warnings by setting logger level
 Logger.LOG_LEVEL = 'ERROR';
@@ -24,21 +25,6 @@ Amplify.configure(config);
 
 // Stop DataStore sync to prevent unauthorized warnings
 DataStore.stop().catch(() => {});
-
-// Override console.warn to filter DataStore warnings
-const originalWarn = console.warn;
-console.warn = (...args) => {
-  const message = args.join(' ');
-  if (message.includes('DataStore') || 
-      message.includes('syncCandidates') || 
-      message.includes('Unauthorized') ||
-      message.includes('onCreateCandidate') ||
-      message.includes('onUpdateCandidate') ||
-      message.includes('onDeleteCandidate')) {
-    return; // Suppress DataStore warnings
-  }
-  originalWarn.apply(console, args);
-};
 
 // Register Service Worker for PWA
 window.addEventListener('load', () => {
@@ -55,7 +41,7 @@ root.render(
           <App />
         </Authenticator.Provider>
       </AmplifyProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   </React.StrictMode>,
 );

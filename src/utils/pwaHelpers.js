@@ -14,10 +14,9 @@ export const canInstallPWA = () => {
 };
 
 export const registerSW = async () => {
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js');
-      console.log('SW registered: ', registration);
       
       // Listen for updates
       registration.addEventListener('updatefound', () => {
@@ -34,7 +33,7 @@ export const registerSW = async () => {
       
       return registration;
     } catch (error) {
-      console.log('SW registration failed: ', error);
+      // Silently fail in development
       return null;
     }
   }

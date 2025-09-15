@@ -133,6 +133,8 @@ const BookingWidget = ({ isOpen, onClose }) => {
     }
   };
 
+  if (!isOpen) return null;
+
   // Show loading state while fetching services
   if (servicesLoading) {
     return (
@@ -167,8 +169,6 @@ const BookingWidget = ({ isOpen, onClose }) => {
   }
   const isFormValid = selectedService && selectedDate && selectedTime && 
                      customerInfo.name && customerInfo.email && customerInfo.phone;
-
-  if (!isOpen) return null;
 
   if (showConfirmation) {
     return (
