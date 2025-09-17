@@ -17,7 +17,7 @@ type Service @model @auth(rules: [{allow: public}]) {
   imagePath: String
 }
 
-type Candidate @model @auth(rules: [{allow: public, operations: [create]}]) {
+type Candidate @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   email: AWSEmail!

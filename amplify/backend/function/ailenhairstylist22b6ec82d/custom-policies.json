@@ -2,6 +2,9 @@
   {
     "Action": ["ses:SendEmail"],
     "Effect": "Allow",
-    "Resource": ["arn:aws:ses:*:*:identity/ailenmejiastravieso@gmail.com"]
+    "Resource": [
+      "arn:aws:ses:*:*:identity/ailenmejiastravieso@gmail.com",
+      "arn:aws:ses:*:*:identity/noreply@ailenhairstylist.com"
+    ]
   }
 ]

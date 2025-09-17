@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   ButtonGroup,
   Button,
@@ -19,6 +19,7 @@ import { API } from "aws-amplify";
 import { createCandidate } from "../graphql/mutations";
 import SEO from './SEO';
 
+
 const IconEmail = () => {
   return (
     <Icon
@@ -36,7 +37,14 @@ function Contact({ signOut }) {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [honeypot, setHoneypot] = useState('');
+  const [startTime, setStartTime] = useState(null);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    setStartTime(Date.now());
+  }, []);
 
   const validateField = (name, value) => {
     const newErrors = { ...errors };
@@ -89,12 +97,40 @@ function Contact({ signOut }) {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // Anti-spam validations
+    if (honeypot) {
+      console.log('Bot detected - honeypot filled');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const timeTaken = Date.now() - startTime;
+    if (timeTaken < 3000) {
+      console.log('Bot detected - form filled too quickly');
+      setErrors({ general: 'Por favor, tómate tu tiempo para llenar el formulario.' });
+      setIsSubmitting(false);
+      return;
+    }
+
+
+
     // Validate all fields
     const isNameValid = validateField('name', formData.name);
     const isEmailValid = validateField('email', formData.email);
     const isMessageValid = validateField('message', formData.message);
 
     if (!isNameValid || !isEmailValid || !isMessageValid) {
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Additional spam checks
+    const spamKeywords = ['viagra', 'casino', 'lottery', 'winner', 'congratulations', 'click here', 'free money', 'make money fast'];
+    const messageText = formData.message.toLowerCase();
+    const hasSpam = spamKeywords.some(keyword => messageText.includes(keyword));
+    
+    if (hasSpam) {
+      setErrors({ message: 'Message contains inappropriate content.' });
       setIsSubmitting(false);
       return;
     }
@@ -114,6 +150,7 @@ function Contact({ signOut }) {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
+
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -141,14 +178,9 @@ function Contact({ signOut }) {
           justifyContent={{ large: "center" }}
           gap={tokens.space.xl}
         >
-          <Flex direction={"column"} justifyContent="space-between">
-            {/* <InstagramEmbed url='https://www.instagram.com/p/Ct-HZtfsIwc/'/> */}
-          </Flex>
+
           <Flex direction={"column"} justifyContent="space-between">
             <View style={{ marginBottom: tokens.space.small }}>
-            {/* <h1 className="text-base text-indigo-600 font-semibold tracking-wide uppercase mb-5">
-            Contact Us
-            </h1> */}
               <Heading color={tokens.colors.white} level={3}>
                 Contact Us
               </Heading>
@@ -219,7 +251,31 @@ function Contact({ signOut }) {
             padding={tokens.space.medium}
             borderRadius={tokens.radii.medium}
           >
-            <Flex as="form" direction={"column"} onSubmit={handleFormSubmit}>
+            <Flex as="form" direction={"column"} onSubmit={handleFormSubmit} ref={formRef}>
+              {/* Honeypot field - hidden from users */}
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                style={{ display: 'none' }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+              
+              {errors.general && (
+                <View
+                  backgroundColor={tokens.colors.red[10]}
+                  borderColor={tokens.colors.red[60]}
+                  borderWidth={tokens.borderWidths.small}
+                  borderRadius={tokens.radii.small}
+                  padding={tokens.space.medium}
+                  style={{ marginBottom: tokens.space.medium }}
+                >
+                  <Text color={tokens.colors.red[90]}>{errors.general}</Text>
+                </View>
+              )}
+              
               {submitStatus === 'success' && (
                 <View
                   backgroundColor={tokens.colors.green[10]}
@@ -321,170 +377,11 @@ function Contact({ signOut }) {
           </View>
         </Flex>
       </Card>
-      {/* <div id="contact" className="bg-gray-100 w-full min-h-screen p-2 flex items-center">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              
-              
-              <ul className="text-lg text-gray-700">
-              <div className="w-full md:w-1/2 p-0 md:p-8 flex items-center justify-center ">
-         
-          
-         <img
-           src="https://ailenhairstylistweb.s3.amazonaws.com/salon-hair-stylist-5331382_1280.png"
-           alt="Contact"
-           className="w-full h-auto object-cover rounded-tl-2xl rounded-br-2xl"
-         />
-       </div>
-  
-                <li className="flex items-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 22s8-4.5 8-11.8c0-4.1-2.3-7.6-5.5-9.4"/>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 22s-8-4.5-8-11.8c0-4.1 2.3-7.6 5.5-9.4"/>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                  </svg>
-                  <InstagramEmbed url='https://www.instagram.com/p/Ct-HZtfsIwc/'/>
-                
-                </li>
-  
-              </ul>
-  
-  
-            </div>
-            <div className="mt-12 sm:mt-16 md:mt-0">
-            <Flex justifyContent="center" alignItems="center" height="100vh">
-        <Card
-          padding={{ large: tokens.space.xxxl }}
-          variation="elevated"
-          borderRadius={tokens.radii.medium}
-          backgroundColor={tokens.colors.blue[90]}
-        >
-          <Flex
-            direction={{ base: 'column', large: 'row' }}
-            justifyContent={{ large: 'center' }}
-            gap={tokens.space.xl}
-          >
-            <Flex direction={'column'} justifyContent="space-between">
-              <View style={{ marginBottom: tokens.space.small }}>
-                <Heading color={tokens.colors.white} level={3}>
-                Contact Us
-                </Heading>
-                <Text color={tokens.colors.neutral[60]}>
-                
-              If you have any questions or would like to schedule a consultation with me, please do not hesitate to do it
-              
-                </Text>
-              </View>
-              <ButtonGroup
-                style={{ marginBottom: tokens.space.small }}
-                color={tokens.colors.neutral[20]}
-                direction={'column'}
-                variation="link"
-              >
-                <Button
-                  color={tokens.colors.neutral[40]}
-                  justifyContent={'start'}
-                  gap="1rem"
-                >
-                  <a href="tel:+17867949162"> +1 (786) 794 9162 </a>
-                </Button>
-                <Button
-                  color={tokens.colors.neutral[40]}
-                  justifyContent={'start'}
-                  gap="1rem"
-                >
-                  <IconEmail color={tokens.colors.blue[40]} />{' '}
-                  <a href={"mailto:ailenmejiastravieso@gmail.com"}>ailenmejiastravieso@gmail.com</a>
-                </Button>
-                <Button
-                  color={tokens.colors.neutral[40]}
-                  justifyContent={'start'}
-                  gap="1rem"
-                > Florida, United
-                  States
-                </Button>
-              </ButtonGroup>
-              <Flex style={{ marginLeft: tokens.space.large }}>
-                <Link
-                  href="https://twitter.com/"
-                  color={tokens.colors.blue[20]}
-                  fontSize={'2rem'}
-                >
-                  <Icon ariaLabel="twitter" as={BsTwitter} />
-                </Link>
-                <Link
-                  href="https://youtube.com/"
-                  color={tokens.colors.red[60]}
-                  fontSize={'2rem'}
-                >
-                  <Icon ariaLabel="youtube" as={BsYoutube} />
-                </Link>
-                <Link
-                  href="https://blog.blog.com"
-                  color={tokens.colors.green[40]}
-                  fontSize={'2rem'}
-                >
-                  <Icon ariaLabel="blog" as={BsJournal} />
-                </Link>
-              </Flex>
-            </Flex>
-            <View
-              width={{ base: '70vw', large: '400px' }}
-              backgroundColor={tokens.colors.white}
-              padding={tokens.space.medium}
-              borderRadius={tokens.radii.medium}
-            >
-              <Flex as="form" direction={'column'} onSubmit={handleFormSubmit}>
-                <TextField
-                  required
-                  label="Your Name"
-                  name="name"
-                  placeholder="Your name"
-                  innerStartComponent={
-                    <FieldGroupIcon ariaLabel="">
-                      
-                    </FieldGroupIcon>
-                  }
-                />
-                <TextField
-                  label="Email"
-                  name="email"
-                  placeholder="you@email.com"
-                  type={'email'}
-                  required
-                  innerStartComponent={
-                    <FieldGroupIcon ariaLabel="">
-                      
-                      <IconEmail />
-                    </FieldGroupIcon>
-                  }
-                />
-                <TextAreaField
-                  required
-                  label="Message"
-                  name="message"
-                  placeholder="Enter your message"
-                />
-                <View style={{ marginTop: tokens.space.medium }}>
-                  <Button type="submit" variation="primary">
-                    Send Message
-                  </Button>
-                </View>
-              </Flex>
-            </View>
-          </Flex>
-        </Card>
-      </Flex>
-          </div>
-        </div>
-       </div>
-      </div> */}
-      {/* <Button onClick={signOut}>Sign Out</Button> */}
+
       </Flex>
     </>
   );
 }
 
-//export default withAuthenticator(Contact);
+
 export default Contact;

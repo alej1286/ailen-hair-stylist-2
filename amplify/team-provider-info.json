@@ -16,7 +16,7 @@
         "ailenhairstylist22b6ec82d": {
           "sesEmail": "ailenmejiastravieso@gmail.com",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
-          "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-387148514d78682f4164-build.zip"
+          "s3Key": "amplify-builds/ailenhairstylist22b6ec82d-31424852467a71436549-build.zip"
         },
         "instagramfunction": {
           "secretsPathAmplifyAppId": "daondcek2caec",
@@ -24,7 +24,8 @@
           "userid": "8424517864323494",
           "deploymentBucketName": "amplify-amplifyc6f487cfd3d84-staging-120828-deployment",
           "s3Key": "amplify-builds/instagramfunction-6f7a56485a707954432b-build.zip"
-        }
+        },
+        "emailForwardingFunction": {}
       },
       "auth": {
         "ailenhairstylist2e93302e2": {}
