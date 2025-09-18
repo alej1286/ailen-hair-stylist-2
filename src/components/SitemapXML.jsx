@@ -7,26 +7,30 @@ import { generateSitemap } from '../utils/sitemapGenerator';
 
 const SitemapXML = () => {
   useEffect(() => {
-    // Generate XML content
+    // Set document content type
+    document.contentType = 'application/xml';
+    
+    // Generate and serve XML
     const xmlContent = generateSitemap();
     
-    // Create a blob with XML content
-    const blob = new Blob([xmlContent], { type: 'application/xml' });
-    const url = URL.createObjectURL(blob);
-    
-    // Redirect to the blob URL to serve XML
-    window.location.replace(url);
-    
-    // Cleanup
-    return () => {
-      URL.revokeObjectURL(url);
-    };
+    // Replace entire page with XML
+    document.open();
+    document.write(xmlContent);
+    document.close();
   }, []);
 
+  // Fallback display
   return (
-    <div style={{ fontFamily: 'monospace', whiteSpace: 'pre-wrap', padding: '20px' }}>
+    <pre style={{ 
+      fontFamily: 'monospace', 
+      whiteSpace: 'pre-wrap', 
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      border: '1px solid #ddd',
+      borderRadius: '4px'
+    }}>
       {generateSitemap()}
-    </div>
+    </pre>
   );
 };
 

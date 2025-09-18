@@ -52,6 +52,7 @@ function App({ signOut }) {
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/sitemap.xml" element={<SitemapXML />} />
             <Route path="/sitemap-dynamic" element={<SitemapXML />} />
 
 
