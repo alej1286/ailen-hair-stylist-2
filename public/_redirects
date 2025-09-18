@@ -1,1 +1,7 @@
+# Redirect www to non-www
 https://www.ailenhairstylist.com/* https://ailenhairstylist.com/:splat 301!
+
+# Remove hash fragments and trailing slashes
+/#!* / 301!
+/*/#!* /:splat 301!
+/*/ /:splat 301!

@@ -24,7 +24,8 @@ import {
 import Instagram from "./components/Instagram";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import { Login } from "./components/Login";
-import Sitemap from "./components/Sitemap";
+
+
 import ElfsightWidget from "./components/ElfsightWidget";
 
 
@@ -50,7 +51,8 @@ function App({ signOut }) {
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
             <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/sitemap.xml" element={<Sitemap />} />
+
+
           </Routes>
         {/* <Carousel businessKey={"ChIJQw1FNwa_-------------"} apiKey={"AIzaSyC7j----------------------"}/> */}
           

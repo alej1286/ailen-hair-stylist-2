@@ -132,7 +132,7 @@ export const generateMetaTags = (pageKey) => {
       { name: "description", content: description },
       { name: "keywords", content: pageData.keywords },
       { name: "author", content: baseSEO.siteName },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "language", content: "English" },
       { name: "geo.region", content: "US-FL" },
       { name: "geo.placename", content: "Florida" },
@@ -162,6 +162,7 @@ export const generateMetaTags = (pageKey) => {
     link: [
       { rel: "canonical", href: canonical },
       { rel: "alternate", href: canonical, hreflang: "en" },
+      { rel: "alternate", href: canonical, hreflang: "x-default" },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
     ],
     script: [
