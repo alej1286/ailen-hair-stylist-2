@@ -40,9 +40,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "node scripts/update-sitemap.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "update-sitemap": "node scripts/update-sitemap.js",
+    "test-sitemap": "node scripts/test-sitemap.js",
+    "deploy-sitemap": "node scripts/deploy-sitemap.js"
   },
   "browserslist": {
     "production": [

@@ -1,7 +1,5 @@
-# Redirect www to non-www
-https://www.ailenhairstylist.com/* https://ailenhairstylist.com/:splat 301!
+# Sitemap XML - serve static file directly
+/sitemap.xml /sitemap.xml 200!
 
-# Remove hash fragments and trailing slashes
-/#!* / 301!
-/*/#!* /:splat 301!
-/*/ /:splat 301!
+# SPA fallback (but not for sitemap)
+/* /index.html 200

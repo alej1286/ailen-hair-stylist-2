@@ -32,6 +32,7 @@ import ElfsightWidget from "./components/ElfsightWidget";
 import WhatsAppChat from "./components/WhatsAppChat";
 import AdminPanel from "./components/AdminPanel";
 import InstallPrompt from "./components/InstallPrompt";
+import SitemapXML from "./components/SitemapXML";
 
 function App({ signOut }) {
 
@@ -51,6 +52,7 @@ function App({ signOut }) {
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/sitemap-dynamic" element={<SitemapXML />} />
 
 
           </Routes>
