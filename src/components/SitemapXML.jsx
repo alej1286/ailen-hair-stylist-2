@@ -1,36 +1,26 @@
 /**
- * SitemapXML Component - Serves XML sitemap content
+ * SitemapXML Component - Displays XML sitemap content
  */
 
-import { useEffect } from 'react';
 import { generateSitemap } from '../utils/sitemapGenerator';
 
 const SitemapXML = () => {
-  useEffect(() => {
-    // Set document content type
-    document.contentType = 'application/xml';
-    
-    // Generate and serve XML
-    const xmlContent = generateSitemap();
-    
-    // Replace entire page with XML
-    document.open();
-    document.write(xmlContent);
-    document.close();
-  }, []);
-
-  // Fallback display
+  const xmlContent = generateSitemap();
+  
   return (
-    <pre style={{ 
-      fontFamily: 'monospace', 
-      whiteSpace: 'pre-wrap', 
-      padding: '20px',
-      backgroundColor: '#f5f5f5',
-      border: '1px solid #ddd',
-      borderRadius: '4px'
-    }}>
-      {generateSitemap()}
-    </pre>
+    <div style={{ margin: 0, padding: 0 }}>
+      <pre style={{ 
+        fontFamily: 'monospace', 
+        whiteSpace: 'pre-wrap', 
+        margin: 0,
+        padding: '20px',
+        backgroundColor: '#ffffff',
+        fontSize: '14px',
+        lineHeight: '1.4'
+      }}>
+        {xmlContent}
+      </pre>
+    </div>
   );
 };
 

@@ -33,6 +33,7 @@ import WhatsAppChat from "./components/WhatsAppChat";
 import AdminPanel from "./components/AdminPanel";
 import InstallPrompt from "./components/InstallPrompt";
 import SitemapXML from "./components/SitemapXML";
+import SitemapGenerator from "./components/SitemapGenerator";
 
 function App({ signOut }) {
 
@@ -54,6 +55,7 @@ function App({ signOut }) {
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/sitemap.xml" element={<SitemapXML />} />
             <Route path="/sitemap-dynamic" element={<SitemapXML />} />
+            <Route path="/generate-sitemap" element={<SitemapGenerator />} />
 
 
           </Routes>
