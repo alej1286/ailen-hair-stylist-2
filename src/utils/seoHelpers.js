@@ -161,6 +161,7 @@ export const generateMetaTags = (pageKey) => {
     ],
     link: [
       { rel: "canonical", href: canonical },
+      { rel: "alternate", href: canonical, hreflang: "en" },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
     ],
     script: [

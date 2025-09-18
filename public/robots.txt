@@ -1,4 +1,3 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
@@ -6,15 +5,14 @@ Allow: /
 Sitemap: https://ailenhairstylist.com/sitemap.xml
 
 # Disallow admin and private areas
-Disallow: /authe
-Disallow: /login
 Disallow: /admin
-Disallow: /private
+Disallow: /login
+Disallow: /authe
 
 # Allow important pages
 Allow: /
-Allow: /services
 Allow: /about
+Allow: /services
 Allow: /gallery
 Allow: /contact
 Allow: /instagram
