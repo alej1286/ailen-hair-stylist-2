@@ -1,12 +1,10 @@
 RewriteEngine On
 
-# Serve sitemap.xml with correct content type
-<Files "sitemap.xml">
-    Header set Content-Type "application/xml"
-</Files>
+# Serve static XML files directly
+RewriteRule ^sitemap\.xml$ sitemap.xml [L]
+RewriteRule ^robots\.txt$ robots.txt [L]
 
 # Handle React Router
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
 RewriteRule . /index.html [L]

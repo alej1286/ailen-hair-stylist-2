@@ -1,7 +1,7 @@
-# Static files first
-/sitemap.xml /sitemap.xml 200
-/robots.txt /robots.txt 200
-/favicon.ico /favicon.ico 200
+# Static files - serve directly without React Router
+/sitemap.xml /sitemap.xml 200!
+/robots.txt /robots.txt 200!
+/favicon.ico /favicon.ico 200!
 
-# SPA fallback
+# SPA fallback for all other routes
 /* /index.html 200

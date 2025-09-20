@@ -21,7 +21,12 @@ export const suppressDevelopmentWarnings = () => {
       message.includes('WebSocket connection') ||
       message.includes('chrome-extension') ||
       message.includes('Failed to execute') ||
-      message.includes('Request scheme')
+      message.includes('Request scheme') ||
+      message.includes('MetaMask') ||
+      message.includes('Failed to connect to MetaMask') ||
+      message.includes('MetaMask extension not found') ||
+      message.includes('ethereum') ||
+      message.includes('web3')
     ) {
       return;
     }
@@ -48,6 +53,36 @@ export const suppressDevelopmentWarnings = () => {
     originalWarn.apply(console, args);
   };
 };
+
+// Suppress uncaught errors from extensions
+window.addEventListener('error', (event) => {
+  const message = event.message || '';
+  if (
+    message.includes('MetaMask') ||
+    message.includes('chrome-extension') ||
+    message.includes('ethereum') ||
+    message.includes('web3') ||
+    event.filename?.includes('chrome-extension')
+  ) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  }
+});
+
+// Suppress unhandled promise rejections from extensions
+window.addEventListener('unhandledrejection', (event) => {
+  const message = event.reason?.message || event.reason || '';
+  if (
+    message.includes('MetaMask') ||
+    message.includes('chrome-extension') ||
+    message.includes('ethereum') ||
+    message.includes('web3')
+  ) {
+    event.preventDefault();
+    return false;
+  }
+});
 
 // Initialize error suppression
 suppressDevelopmentWarnings();

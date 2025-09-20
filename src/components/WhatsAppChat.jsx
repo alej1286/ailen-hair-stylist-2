@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { FaWhatsapp, FaTimes, FaShieldAlt, FaExclamationTriangle } from 'react-icons/fa';
 import { useWhatsAppSecurity } from '../hooks/useWhatsAppSecurity';
 
