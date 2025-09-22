@@ -19,6 +19,7 @@ import ElfsightWidget from "./components/ElfsightWidget";
 import WhatsAppChat from "./components/WhatsAppChat";
 import InstallPrompt from "./components/InstallPrompt";
 import GoogleAnalyticsWrapper from "./components/GoogleAnalyticsWrapper";
+import SitemapRedirect from "./components/SitemapRedirect";
 
 function App({ signOut }) {
   return (
@@ -38,6 +39,7 @@ function App({ signOut }) {
             <Route path="/login" element={<Login />} />
             <Route path="/authe" element={<Authe />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/sitemap.xml" element={<SitemapRedirect />} />
           </Routes>
         {/* <Carousel businessKey={"ChIJQw1FNwa_-------------"} apiKey={"AIzaSyC7j----------------------"}/> */}
           

@@ -2,11 +2,16 @@ import { useEffect } from 'react';
 
 const SitemapRedirect = () => {
   useEffect(() => {
-    // Redirect to the static sitemap.xml file
-    window.location.replace('/sitemap.xml');
+    // Force redirect to the static sitemap.xml file
+    window.location.href = '/sitemap.xml';
   }, []);
 
-  return null;
+  // Show loading message while redirecting
+  return (
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <p>Redirecting to sitemap...</p>
+    </div>
+  );
 };
 
 export default SitemapRedirect;
