@@ -1,7 +1,5 @@
-# Sitemap redirect
-/sitemap.xml /sitemap 200!
-
 # Static files - serve directly without React Router
+/sitemap.xml /sitemap.xml 200!
 /robots.txt /robots.txt 200!
 /favicon.ico /favicon.ico 200!
 
