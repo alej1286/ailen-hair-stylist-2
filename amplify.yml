@@ -24,14 +24,22 @@ frontend:
           value: 'application/xml'
         - key: 'Cache-Control'
           value: 'public, max-age=3600'
+    - pattern: '/api/sitemap.xml'
+      headers:
+        - key: 'Content-Type'
+          value: 'application/xml'
+        - key: 'Cache-Control'
+          value: 'public, max-age=3600'
     - pattern: '/**'
       headers:
         - key: 'X-Frame-Options'
           value: 'DENY'
         - key: 'X-Content-Type-Options'
           value: 'nosniff'
-  rewrites:
+  redirects:
+    - source: '/sitemap.xml'
+      target: '/api/sitemap.xml'
+      status: '301'
     - source: '/<*>'
       target: '/index.html'
       status: '200'
-      condition: null

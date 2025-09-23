@@ -29,6 +29,17 @@ copyFile(
   path.join(buildDir, 'sitemap.xml')
 );
 
+// Ensure api directory exists in build
+const apiBuildDir = path.join(buildDir, 'api');
+if (!fs.existsSync(apiBuildDir)) {
+  fs.mkdirSync(apiBuildDir, { recursive: true });
+}
+
+copyFile(
+  path.join(publicDir, 'sitemap.xml'),
+  path.join(apiBuildDir, 'sitemap.xml')
+);
+
 copyFile(
   path.join(publicDir, 'robots.txt'),
   path.join(buildDir, 'robots.txt')
