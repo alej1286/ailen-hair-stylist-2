@@ -23,21 +23,10 @@ if (!fs.existsSync(buildDir)) {
   fs.mkdirSync(buildDir, { recursive: true });
 }
 
-// Copy static files
+// Copy static files directly to build root
 copyFile(
   path.join(publicDir, 'sitemap.xml'),
   path.join(buildDir, 'sitemap.xml')
-);
-
-// Ensure api directory exists in build
-const apiBuildDir = path.join(buildDir, 'api');
-if (!fs.existsSync(apiBuildDir)) {
-  fs.mkdirSync(apiBuildDir, { recursive: true });
-}
-
-copyFile(
-  path.join(publicDir, 'sitemap.xml'),
-  path.join(apiBuildDir, 'sitemap.xml')
 );
 
 copyFile(
@@ -46,3 +35,4 @@ copyFile(
 );
 
 console.log('✅ Static files copied successfully!');
+console.log('📍 sitemap.xml will be available at: /sitemap.xml');
