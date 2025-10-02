@@ -34,13 +34,3 @@ frontend:
           value: 'DENY'
         - key: 'X-Content-Type-Options'
           value: 'nosniff'
-  redirects:
-    - source: '/sitemap.xml'
-      target: '/sitemap.xml'
-      status: '200'
-    - source: '/robots.txt'
-      target: '/robots.txt'
-      status: '200'
-    - source: '/<*>'
-      target: '/index.html'
-      status: '200'
