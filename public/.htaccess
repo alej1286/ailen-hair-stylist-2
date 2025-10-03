@@ -1,22 +1,4 @@
-# Enable rewrite engine
-RewriteEngine On
-
-# Force correct MIME type for XML files
+# Minimal configuration for static files
 <Files "sitemap.xml">
-    Header set Content-Type "application/xml; charset=utf-8"
-    Header set Cache-Control "public, max-age=3600"
+    ForceType application/xml
 </Files>
-
-# Force correct MIME type for robots.txt
-<Files "robots.txt">
-    Header set Content-Type "text/plain; charset=utf-8"
-</Files>
-
-# Serve static files directly
-RewriteRule ^sitemap\.xml$ sitemap.xml [L]
-RewriteRule ^robots\.txt$ robots.txt [L]
-
-# SPA fallback for all other routes
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
