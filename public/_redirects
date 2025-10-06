@@ -1,2 +1,4 @@
-/sitemap.xml /sitemap.xml 200!
+# SPA fallback - exclude static files
+!/sitemap.xml
+!/robots.txt
 /* /index.html 200

@@ -10,6 +10,9 @@ frontend:
     postBuild:
       commands:
         - node scripts/copy-static-files.js
+        - echo "Copying sitemap.xml to build directory"
+        - cp public/sitemap.xml build/sitemap.xml
+        - cp public/robots.txt build/robots.txt
   artifacts:
     baseDirectory: build
     files:
@@ -17,3 +20,12 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+  customHeaders:
+    - pattern: '/sitemap.xml'
+      headers:
+        - key: 'Content-Type'
+          value: 'application/xml'
+    - pattern: '/robots.txt'
+      headers:
+        - key: 'Content-Type'
+          value: 'text/plain'
