@@ -1,6 +1,6 @@
-# Static files - serve directly
-/sitemap.xml /sitemap.xml 200
-/robots.txt /robots.txt 200
+# Static files with explicit rules
+/sitemap.xml /sitemap.xml 200!
+/robots.txt /robots.txt 200!
 
-# SPA fallback for all other routes
+# SPA fallback for all other routes  
 /* /index.html 200
