@@ -1,4 +1,6 @@
-# SPA fallback - exclude static files
-!/sitemap.xml
-!/robots.txt
+# Static files - serve directly
+/sitemap.xml /sitemap.xml 200
+/robots.txt /robots.txt 200
+
+# SPA fallback for all other routes
 /* /index.html 200
