@@ -20,26 +20,24 @@ const routes = [
   { path: '/privacypolicy', priority: '0.3', changefreq: 'yearly' }
 ];
 
-// Generate XML content
+// Generate XML content with proper line breaks
 const generateSitemapXML = () => {
-  const xmlHeader = '<?xml version="1.0" encoding="UTF-8"?>';
-  const urlsetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-  const urlsetClose = '</urlset>';
-
-  const urls = routes.map(route => {
+  const lines = [];
+  lines.push('<?xml version="1.0" encoding="UTF-8"?>');
+  lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+  
+  routes.forEach(route => {
     const fullUrl = `${siteUrl}${route.path}`;
-    return `  <url>
-    <loc>${fullUrl}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>${route.changefreq}</changefreq>
-    <priority>${route.priority}</priority>
-  </url>`;
-  }).join('\n');
-
-  return `${xmlHeader}
-${urlsetOpen}
-${urls}
-${urlsetClose}`;
+    lines.push('  <url>');
+    lines.push(`    <loc>${fullUrl}</loc>`);
+    lines.push(`    <lastmod>${currentDate}</lastmod>`);
+    lines.push(`    <changefreq>${route.changefreq}</changefreq>`);
+    lines.push(`    <priority>${route.priority}</priority>`);
+    lines.push('  </url>');
+  });
+  
+  lines.push('</urlset>');
+  return lines.join('\n');
 };
 
 // Update sitemap file
@@ -48,7 +46,8 @@ const updateSitemap = () => {
     const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
     const xmlContent = generateSitemapXML();
     
-    fs.writeFileSync(sitemapPath, xmlContent, 'utf8');
+    // Write with explicit UTF-8 encoding and no BOM
+    fs.writeFileSync(sitemapPath, xmlContent, { encoding: 'utf8', flag: 'w' });
     console.log('✅ Sitemap updated successfully!');
     console.log(`📅 Last modified: ${currentDate}`);
     console.log(`📍 Location: ${sitemapPath}`);
