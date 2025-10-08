@@ -1,9 +1,15 @@
 {
   "name": "ailen-hair-stylist-2",
   "version": "0.1.0",
-  "description": "Your hair styling platform where you can find and hire a hairstylist in your area.",
+  "description": "Ailen Hair Stylist - Miami's premier hair stylist serving Brickell, South Beach, and Coral Gables. Expert cuts, color, highlights, extensions, and bridal styling.",
   "keywords": [
-    "hair stylist",
+    "Ailen Hair Stylist",
+    "Miami hair stylist",
+    "Brickell hair stylist",
+    "South Beach hair stylist",
+    "Coral Gables hair stylist",
+    "Miami hair color",
+    "Miami bridal hair",
     "seo",
     "aws amplify",
     "react"

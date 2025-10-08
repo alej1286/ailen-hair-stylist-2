@@ -348,17 +348,17 @@ function Services() {
             level={1}
             className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
           >
-            Our Hair Salon Services
+            Ailen Hair Stylist Services
           </Heading>
           <Text className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover our wide range of professional hair styling and beauty services.
+            Discover Ailen Hair Stylist's wide range of professional hair styling and beauty services.
             Each service is designed to enhance your natural beauty and boost your confidence.
           </Text>
 
           {/* Breadcrumb for SEO */}
           <nav aria-label="Breadcrumb" className="mt-4">
             <Text className="text-sm text-gray-500">
-              Home → Services → Hair Salon
+              Home → Services → Hair Stylist
             </Text>
           </nav>
         </header>
@@ -382,7 +382,7 @@ function Services() {
                     Admin Panel
                   </Heading>
                   <Text className="text-gray-600">
-                    Manage your salon services
+                    Manage your hair styling services
                   </Text>
                 </div>
                 <Button
@@ -460,9 +460,9 @@ function Services() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BeautySalon",
+            "@type": "HairSalon",
             name: "Ailen Hair Stylist",
-            description: "Professional hair styling and beauty services",
+            description: "Professional hair styling and beauty services by Ailen Hair Stylist",
             url: typeof window !== "undefined" ? window.location.href : "",
             serviceType: "Hair Styling Services",
             areaServed: "United States",

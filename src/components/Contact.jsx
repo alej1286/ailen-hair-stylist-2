@@ -182,11 +182,11 @@ function Contact({ signOut }) {
           <Flex direction={"column"} justifyContent="space-between">
             <View style={{ marginBottom: tokens.space.small }}>
               <Heading color={tokens.colors.white} level={3}>
-                Contact Us
+                Contact Ailen Hair Stylist
               </Heading>
               <Text color={tokens.colors.neutral[60]}>
-                If you have any questions or would like to schedule a
-                consultation with me, please do not hesitate to do it
+                Ready to transform your look? Serving Brickell, South Beach, 
+                Coral Gables and all of Miami-Dade. Book your consultation today!
               </Text>
             </View>
             <ButtonGroup
@@ -218,7 +218,7 @@ function Contact({ signOut }) {
                 gap="1rem"
               >
                 {" "}
-                Florida, United States
+                Miami, Florida • Serving Brickell, South Beach, Coral Gables
               </Button>
             </ButtonGroup>
             <Flex style={{ marginLeft: tokens.space.large }}>

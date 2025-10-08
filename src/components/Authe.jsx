@@ -13,8 +13,7 @@ class Authe extends Component {
   render() {
     return (
       <div className="mt-24 ">
-        {/* 
-  <InstaFeeds token="IGQVJYbEZAVM3dCOTRnOTBwcG5TU2JsNk1CMDVzRE5NN3ZAfSUNUQkFYbFBfY3plNXFXWERFRXBEX19sZAjNMUWVBUHRXQ3R4Q2g3TnRqdlNFb3ZAMbDF6d24zQk1faUVYeWtJcERLOVp5YzZAiZAk5JQU5abQZDZD" limit={12}/> */}
+        {/* Instagram feed will be loaded from environment variables */}
       </div>
     );
   }
